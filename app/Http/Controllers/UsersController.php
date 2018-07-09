@@ -61,7 +61,7 @@ class UsersController extends Controller
         $user->first_name = $request->firstName;
         $user->last_name = $request->lastName;
         $user->email = $request->email;
-        $user->password = $request->password;
+        $user->password = password_hash($request->password,PASSWORD_DEFAULT);
         $user->role = $request->role;
 
         $userImage = new UserImage;
