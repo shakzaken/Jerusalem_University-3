@@ -22,8 +22,8 @@ Technologies: •	PHP. •	JavaScript. •	CSS. •	MySql
 Author: Yakir zaken.
 
 
-###Links:
+### Links:
 
-[LinkedIn](https://www.linkedin.com/in/shakzaken/)
-[Github](https://github.com/shakzaken)
-[YouTube](https://www.youtube.com/channel/UCOw5Ax2fJm_e5feGKuw2N4A/featured?view_as=subscriber)
+[LinkedIn](https://www.linkedin.com/in/shakzaken/).
+[Github](https://github.com/shakzaken).
+[YouTube](https://www.youtube.com/channel/UCOw5Ax2fJm_e5feGKuw2N4A/featured?view_as=subscriber).
