@@ -1,0 +1,13 @@
+.course-comments-header {
+  font-size: 28px;
+  text-decoration-line: underline;
+  margin-bottom: 10px; }
+
+.course-comments-form-body {
+  width: 90%;
+  height: 60px;
+  font-size: 16px;
+  margin: 10px 0; }
+
+.course-comments-container {
+  height: auto; }

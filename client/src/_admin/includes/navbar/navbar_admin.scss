@@ -1,0 +1,39 @@
+.admin-navbar{
+  display: flex;
+  height: 80px;
+  padding:25px 200px;
+  background: rgb(214, 46, 54);
+  color:white;
+  border-bottom: 2px solid rgb(240, 131, 131);
+  font-size:18px;
+
+}
+
+.admin-navbar h2{
+  flex:1;
+}
+
+.admin-nav-left-ul{
+  flex:1;
+  display: flex;
+}
+
+.admin-nav-right-ul{
+  flex:1;
+  
+  display: flex;
+  justify-content: flex-end;
+
+}
+
+.admin-navbar li{
+  width:25%;
+  list-style: none;
+  
+}
+.admin-navbar a{
+  color:white;
+  text-decoration: none;
+  font-weight: 600;
+
+}

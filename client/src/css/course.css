@@ -1,0 +1,347 @@
+/* -------------------------- Section -F -----------------*/
+
+.section-f{
+    padding: 80px 0;
+    background: #f8f8f8;
+    
+}
+
+.f-grid{
+    width:80%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 70px;
+}
+
+
+.f-header{
+    grid-column: 1/3;
+    background: rgb(212, 212, 212);
+    text-align: center;
+    
+    font-size: 35px;
+    color:black;
+    font-weight: 300;
+    
+}
+
+.f-pic-container{
+    border: 1px solid rgb(0, 0, 0);
+    grid-row: 2/7;
+    border-right: none;
+}
+
+.f-course-overview{
+    border: 1px solid rgb(0, 0, 0);
+    grid-row: 2/7;
+    background: white;
+
+    padding:20px;
+    line-height: 160%;
+    overflow: hidden;
+    font-size:18px;
+    border-left: none;
+    overflow-y: scroll;
+}
+
+
+
+.f-pic-container img{
+    width:100%;
+    height: 100%;
+}
+
+
+
+
+/* -------------------------- Section -G -----------------*/
+
+.section-g{
+    background: white;
+    padding: 80px 0;
+}
+
+.g-grid{
+    width:90%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 4fr 3fr;
+}
+
+
+.g-course-content{
+
+   padding-left:15%;
+   line-height: 150%;
+   font-size:20px;
+   
+}
+.g-course-content li{
+    list-style: none;
+}
+
+.g-course-content p,
+.g-course-comments p{
+    font-size:28px;
+    text-decoration-line: underline;
+    margin-bottom: 10px;
+}
+
+
+.g-course-comments{
+   
+}
+
+.g-comment{
+    margin-top:30px;
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    grid-auto-rows: 15px;
+    grid-column-gap: 20px;
+    
+}
+
+.g-comment-img{
+    grid-column: 1/2;
+    grid-row: 1/5;
+}
+
+.g-comment-header{
+    grid-column: 2/5;
+    font-weight: 600;
+    font-size:18px;
+}
+.g-delete-icon-container{
+    grid-column: 6/7;
+
+}
+
+.g-comment-img img{
+    width:100%;
+    height:100%;
+}
+
+.g-comment-body{
+    grid-row:3/7;
+    grid-column: 2/7;
+}
+
+.course-content-icon{
+    color:rgb(0, 172, 100);
+}
+
+.g-comment-form{
+    margin:20px;
+}
+
+
+.form-button{
+    display: block;
+    border: 1.5px solid #12d8fa;
+    background: white;
+    color:#12d8fa;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    width:80px;
+    
+
+}
+
+.form-button:hover{
+    background: #12d8fa;
+    color:white;
+}
+
+.form-body{
+    width:90%;
+    height:60px;
+    font-size: 16px;
+    margin: 10px 0;
+}
+
+.g-delete-icon{
+   color:red;
+    
+}
+
+
+@media(max-width:900px){
+    .section-f{
+        padding: 80px 0;
+        background: #f8f8f8;
+        
+    }
+    
+    .f-grid{
+        width:90%;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-auto-rows: 70px;
+        border: 1px solid black;
+        background: white;
+    }
+    
+    
+    .f-header{
+        grid-column: 1/3;
+        background: rgb(212, 212, 212);
+        text-align: center;
+        
+        font-size: 30px;
+        color:black;
+        font-weight: 300;
+        border:none;
+    }
+    
+    .f-pic-container{
+        
+        grid-row: 2/7;
+        grid-column: 1/3;
+        border:none;
+    }
+    
+    .f-course-overview{
+        
+        border: none;
+        grid-column: 1/3;
+        background: white;
+        grid-row-start: 7;
+        grid-row-end: 15;
+        padding:20px;
+        line-height: 160%;
+        margin-bottom: 15px;
+        font-size:18px;
+        border-left: none;
+        overflow: hidden;
+    }
+
+    .g-grid{
+        width:80%;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-row-gap: 50px;
+    }
+
+    .g-course-content{
+
+        padding-left: 0;
+        line-height: 150%;
+        font-size:20px;
+        
+     }
+
+}
+
+@media(max-width:600px){
+    .f-grid{
+        width:90%;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr ;
+        grid-auto-rows: 40px;
+    }
+
+    .f-course-overview{
+        
+        border: none;
+        grid-column: 1/3;
+        background: white;
+        
+        padding:20px;
+        line-height: 160%;
+        margin-bottom: 15px;
+        font-size:15px;
+        border-left: none;
+        overflow: hidden;
+    }
+
+
+    .g-grid{
+        width:90%;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-row-gap: 50px;
+    }
+
+    .g-course-content{
+
+        padding-left: 0;
+        line-height: 150%;
+        font-size:16px;
+        
+     }
+
+
+
+
+
+     .g-course-content p,
+    .g-course-comments p{
+    font-size:22px;
+    text-decoration-line: underline;
+    margin-bottom: 10px;
+}
+
+     .g-comment{
+        margin-top:30px;
+        display: grid;
+        grid-template-columns: repeat(6,1fr);
+        grid-auto-rows: 30px;
+        grid-column-gap: 20px;
+        
+    }
+    
+    .g-comment-img{
+        grid-column: 1/3;
+        grid-row: 1/5;
+    }
+    
+    .g-comment-header{
+        grid-column: 3/6;
+        font-weight: 600;
+        font-size:18px;
+    }
+    .g-delete-icon-container{
+        grid-column: 6/7;
+    
+    }
+    
+    .g-comment-img img{
+        width:100%;
+        height:100%;
+    }
+    
+    .g-comment-body{
+        grid-row:3/7;
+        grid-column: 3/7;
+    }
+    
+    .course-content-icon{
+        color:rgb(0, 172, 100);
+    }
+    
+    .g-comment-form{
+        margin:20px;
+    }
+    
+}
+
+
+@media(max-width:400px){
+    .g-comment-img{
+        grid-column: 1/3;
+        grid-row: 1/4;
+    }
+
+    .g-comment-body{
+        grid-row:2/7;
+        grid-column: 3/7;
+    }
+}
+

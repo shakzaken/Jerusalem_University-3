@@ -1,0 +1,173 @@
+.register-body{
+    background: #f4f6ff;
+    padding-top:100px;
+    padding-bottom: 100px;
+}
+
+
+.register-card{
+    width:40%;
+    margin:0 auto;
+    border:1px solid rgb(189, 189, 189);
+    
+    background: white;
+}
+
+.register-form{
+    padding:20px;
+}
+
+.register-card-header{
+    background: linear-gradient(to left,#36D1DC,#5B86E5);
+    height:100px;
+}
+.register-card-header h3{
+    text-align: center;
+    padding:25px;
+    color:white;
+    font-size:40px;
+    font-weight: 300;
+}
+
+.register-card-footer{
+    background: linear-gradient(to left,#36D1DC,#5B86E5);
+    height:80px;
+}
+
+.register-card-footer p{
+    text-align: center;
+    padding:28px;
+    color:white;
+    font-size:18px;
+    
+}
+
+
+.register-form-button{
+    
+    border: 1.5px solid rgb(125, 214, 255);
+    background: white;
+    color: rgb(125, 214, 255);
+    width:120px;
+    height:50px;
+    font-size:18px;
+    margin-left:60%;
+    margin-top:5%;
+    cursor: pointer;
+}
+.register-form-button:hover{
+    
+    background: rgb(125, 214, 255);
+    color: white;
+}
+
+/* ------------------ Login ----------------------*/
+
+
+.login-body{
+    background: #f4f6ff;
+    padding-top:100px;
+    padding-bottom: 100px;
+}
+
+.login-card{
+    width:35%;
+    margin:0 auto; 
+    border:1px solid rgb(189, 189, 189);
+    background: white;
+}
+
+.login-form{
+    padding:30px;
+    
+}
+
+.login-card-header{
+    background: linear-gradient(to left,#36D1DC,#5B86E5);
+    height:100px;
+}
+.login-card-header h3{
+    text-align: center;
+    padding:25px;
+    color:white;
+    font-size:40px;
+    font-weight: 300;
+}
+
+.login-card-footer{
+    background: linear-gradient(to left,#36D1DC,#5B86E5);
+    height:80px;
+}
+
+.login-card-footer p{
+    text-align: center;
+    padding:28px;
+    color:white;
+    font-size:18px;
+    
+}
+
+@media(max-width:900px){
+    .login-form{
+        padding:20px;
+        
+    }
+    .login-card{
+        width:60%;
+        margin:30px auto;
+       
+    }
+    .register-card{
+        width:70%;
+        margin:100px auto;
+        
+    }
+
+}
+
+@media(max-width:700px){
+
+    .login-form{
+        padding:20px;
+        
+    }
+    .login-card{
+        width:80%;
+        margin:30px auto;
+       
+    }
+    .register-form-button{
+    
+        
+        width:100px;
+        height:50px;
+        font-size:16px;
+        margin-left:50%;
+        margin-top:5%;
+        
+    }
+    
+
+    .form-group > input{
+        height:30px;
+    }
+
+    .form-group{
+        display: grid;
+        grid-template-columns: 1fr;
+        margin-top: 20px;
+        height:auto;
+        grid-row-gap: 10px;
+        
+    }
+
+
+    .register-card{
+        width:90%;
+        margin:100px auto;
+        border:1px solid rgb(189, 189, 189);
+        
+        background: white;
+    }
+}
+

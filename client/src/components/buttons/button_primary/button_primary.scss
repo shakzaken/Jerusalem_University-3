@@ -1,0 +1,19 @@
+@import '../../../sass/global.scss';
+
+
+.button-primary{
+  border: 1.5px solid $primary-color;
+  background: white;
+  color:$primary-color;
+  font-size: 1.6rem;
+  cursor: pointer;
+  padding:1rem 1.5rem;
+  text-decoration: none;
+  border-radius: 3px;
+  &:hover{
+    background: $primary-color;
+    color:white;
+  }
+  
+}
+

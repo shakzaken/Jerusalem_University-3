@@ -1,0 +1,13 @@
+.course-content {
+  padding-left: 15%;
+  line-height: 150%;
+  font-size: 2rem; }
+
+.course-content-header {
+  margin-bottom: 5rem; }
+
+.course-content-icon {
+  color: #00ac64; }
+
+.course-content-row {
+  list-style: none; }

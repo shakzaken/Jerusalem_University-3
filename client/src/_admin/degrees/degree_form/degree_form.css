@@ -1,0 +1,12 @@
+.show-image,
+.show-image1,
+.show-image2,
+.show-image3 {
+  margin-top: 20px;
+  width: 120px;
+  height: 70px; }
+
+#degree-image1,
+#degree-image2,
+#degree-image3 {
+  display: none; }

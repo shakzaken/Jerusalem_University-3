@@ -1,0 +1,35 @@
+.e-card {
+  border: 0.5px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: white; }
+
+.e-card-img {
+  width: 100%;
+  height: 100%; }
+
+.e-card:hover img {
+  -webkit-filter: brightness(80%);
+  filter: brightness(80%); }
+
+.img-container {
+  height: 50%; }
+
+.e-card-body {
+  height: 30%;
+  padding-top: 10px; }
+
+.e-btn-container {
+  height: 20%;
+  text-align: center;
+  margin-top: 10%; }
+
+.e-card-header {
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 10px; }
+
+.e-card-text {
+  text-align: center; }

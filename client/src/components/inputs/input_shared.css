@@ -1,0 +1,6 @@
+.form-group {
+  display: grid;
+  grid-template-columns: 1fr;
+  margin-top: 20px;
+  height: auto;
+  grid-row-gap: 10px; }

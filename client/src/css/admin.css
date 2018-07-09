@@ -1,0 +1,553 @@
+
+
+.admin-server-error{
+    width:30%;
+    padding:10px;
+    margin:20px 10%;
+    background:rgb(247, 100, 100);
+    color:rgb(116, 7, 7);
+    height:50px;
+    text-align: center;
+    font-size:20px;
+    border: 2px solid rgb(148, 7, 7);
+}
+
+.admin-navbar{
+    display: flex;
+    height: 80px;
+    padding:25px 200px;
+    background: rgb(214, 46, 54);
+    color:white;
+    border-bottom: 2px solid rgb(240, 131, 131);
+    font-size:18px;
+
+}
+
+.admin-navbar h2{
+    flex:1;
+}
+
+.admin-nav-left-ul{
+    flex:1;
+    display: flex;
+}
+
+.admin-nav-right-ul{
+    flex:1;
+    
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+.hidden{
+  display: none;
+}
+
+.admin-navbar li{
+    width:25%;
+    list-style: none;
+    
+}
+.admin-navbar a{
+    color:white;
+    text-decoration: none;
+    font-weight: 600;
+
+}
+
+
+
+
+/* -------------- admin section ----------------*/
+
+
+.admin-grid{
+    height: auto;
+    min-height: 800px;
+    display: flex;
+    
+}
+
+
+.admin-main{
+    flex:4;
+    height:auto;
+    background: #f4f4f4;
+    
+}
+
+.admin-main-block{
+    padding:5% 10%;
+    width:100%;
+    
+    
+}
+
+
+
+.admin-footer{
+    background: white;
+    color:black;
+}
+
+/* ------------------ Admin sidebar ---------------------*/
+
+.admin-sidebar{
+    flex:1;
+    background: rgba(0, 0, 0, 0.85);
+    height:auto;
+}
+
+.admin-sidebar ul{
+    color:white;
+    list-style: none;
+}
+
+.admin-logo{
+  
+    padding-top:10px;
+    width:50%;
+    margin: 10px auto 30px auto;  
+    
+}
+
+.admin-pic{
+    width:150px;
+    height:150px;
+    border-radius: 50%;
+
+}
+
+.admin-icon{
+    font-size:80px;
+    size:100px;
+    color:black;
+    
+}
+
+.admin-sidebar-header{
+    color:white;
+    font-weight: 400;
+    font-size: 20px;
+    text-align: center;
+    margin-top:20px;
+}
+
+.admin-links{
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-links li{
+    list-style: none;
+    margin-left:10%;
+    margin-bottom: 20px;
+
+}
+
+
+
+.admin-links a{
+    padding: 10px;
+    color:white;
+    text-decoration: none;
+    font-size:20px;
+}
+
+.admin-links a:hover{
+    background: rgba(0, 0, 0, 0.596);
+}
+
+
+/* ----------------- Admin Header ---------------------*/
+
+.admin-container{
+    background: rgb(221, 221, 221);
+    
+    padding: 50px 0;
+    border-bottom: 2px solid rgb(122, 122, 122);
+}
+
+.admin-header{
+    
+    
+    width:80%;
+    margin:0 auto;
+    display: grid;
+    grid-template-columns: repeat(1fr,4);
+    grid-gap: 20px;
+    grid-auto-rows: 150px;
+    
+}
+
+
+.admin-header-pic1 > a,
+.admin-header-pic2 > a,
+.admin-header-pic3 > a,
+.admin-header-pic4 > a{
+   
+    color:white;
+    
+}
+
+
+
+.admin-header-pic1,
+.admin-header-pic2,
+.admin-header-pic3,
+.admin-header-pic4{
+    grid-row:1/2;
+    font-size: 25px;
+    color:white;
+    text-align: center;
+    padding-top:20px;
+    border-radius: 50%;
+    border: 2px solid black;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+
+
+
+
+.admin-header-pic1{
+
+    grid-column: 1/2;
+    background: rgb(82, 253, 66);
+}
+.admin-header-pic1:hover{
+    background: rgb(63, 190, 51);
+}
+
+
+.admin-header-pic2{
+    grid-column: 2/3;
+    background: rgb(243, 71, 71);
+}
+.admin-header-pic2:hover{
+    background: rgb(187, 55, 55);
+}
+.admin-header-pic3{
+    grid-column: 3/4;
+    background: rgb(92, 116, 252);
+}
+.admin-header-pic3:hover{
+    background: rgb(70, 88, 189);
+}
+.admin-header-pic4{
+    grid-column: 4/5;
+    background: rgb(220, 79, 248);
+}
+.admin-header-pic4:hover{
+    background: rgb(170, 61, 192);
+}
+
+.admin-header-icon{
+    font-size: 60px;
+}
+
+
+/* ---------------------Admin User --------------------*/
+
+
+#user-image{
+    display: none;
+}
+
+.user-image{
+    width:80%;
+    height:50px;
+    background:rgb(236, 236, 236); 
+    border-radius: 50%;
+}
+
+.admin-users-header{
+    font-size:30px;
+    margin-bottom: 20px;
+    font-weight: 400;
+    margin-left:10%;
+
+}
+
+.admin-users-table{
+    width:90%;
+    background: white;
+    padding: 20px;
+    font-size:18px;
+    line-height: 200%;
+    text-align: start;
+    border: 1.5px solid black;
+}
+
+
+.admin-users-table th
+{
+    
+    text-align: start;
+}
+
+.admin-users-big-col{
+    width:20%;
+}
+.admin-users-small-col{
+    width:5%;
+}
+.admin-users-medium-col{
+    width:12%;
+}
+
+.edit-icon{
+    color:rgb(29, 185, 37);
+    margin-left:20%;
+}
+
+.delete-icon{
+    color: rgb(253, 184, 95);
+    margin-left:20%;
+}
+
+
+.admin-form{
+    background: white;
+    border: 1.5px solid black;
+    padding:20px;
+    width:60%;
+    font-size:18px;
+    
+}
+
+
+
+
+.form-group{
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-top: 20px;
+    height: auto;
+    grid-row-gap: 10px;
+    
+}
+
+.form-group > input,
+.form-group > select{
+    height:30px;
+    
+}
+.form-group-medium{
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    margin-top:20px;
+    height:100px;
+}
+
+.form-group-large{
+    display: grid;
+    grid-template-columns: 2fr 3fr;
+    margin-top:20px;
+    height:120px;
+}
+
+textare{
+    display: inline-block;
+}
+
+.admin-form-button
+{
+    border: 1.5px solid rgb(253, 95, 95);
+    background: white;
+    color: rgb(253, 95, 95);
+    width:120px;
+    height:50px;
+    font-size:18px;
+    margin-left:60%;
+    margin-top:5%;
+    cursor: pointer;
+}
+.admin-form-button:hover,
+.admin-form-link:hover
+{
+    border: none;
+    background: rgb(253, 95, 95);
+    color: white;
+}
+
+.admin-form-link{
+    border: 2px solid rgb(253, 95, 95);
+    display: block;
+    padding:10px;
+    text-decoration: none;
+    margin-left:50%;
+    width:80px;
+    height:80px;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+    background: white;
+    color: rgb(253, 95, 95);
+    font-size:18px;
+    font-weight: 600;
+}
+
+
+
+
+
+/*----------------------- Admin degrees -----------------*/
+
+.show-image,
+.show-image1,
+.show-image2,
+.show-image3{
+    margin-top:20px;
+    width:120px;
+    height:70px;
+}
+
+#degree-image1,
+#degree-image2,
+#degree-image3{
+    display: none;
+}
+
+
+.admin-degrees-header{
+    font-size:27px;
+    margin-bottom: 20px;
+    font-weight: 400;
+    margin-left:10%;
+
+}
+
+.admin-degrees-table{
+    width:70%;
+    background: white;
+    padding: 20px;
+    font-size:18px;
+    line-height: 200%;
+    text-align: start;
+    border: 1.5px solid black;
+}
+
+
+
+.degree-link{
+    color:rgb(159, 103, 250);
+    
+}
+
+
+.admin-degrees-table th,
+.admin-degrees-table ed
+{
+    text-align: start;
+   
+}
+
+.admin-degrees-big-col{
+    width:20%;
+}
+.admin-degrees-small-col{
+    width:5%;
+}
+.admin-degrees-medium-col{
+    width:12%;
+}
+
+.edit-icon{
+    color:rgb(29, 185, 37);
+    margin-left:20%;
+}
+
+.delete-icon{
+    color: rgb(253, 184, 95);
+    margin-left:20%;
+}
+
+
+
+
+/*------------------- Admin Courses ------------------------*/
+
+
+.course-image{
+    width:80%;
+    height:50px; 
+    border: 1px solid rgb(158, 158, 158);
+}
+
+
+#course-image{
+    display: none;
+}
+
+.admin-courses-header{
+    font-size:30px;
+    margin-bottom: 20px;
+    font-weight: 400;
+    margin-left:10%;
+
+}
+
+.admin-courses-table{
+    width:90%;
+    background: white;
+    padding: 20px;
+    font-size:18px;
+    line-height: 200%;
+    text-align: start;
+    border: 1.5px solid black;
+}
+
+
+.admin-courses-table th
+{
+    
+    text-align: start;
+}
+
+.admin-courses-big-col{
+    width:20%;
+}
+.admin-courses-small-col{
+    width:5%;
+}
+.admin-courses-medium-col{
+    width:12%;
+}
+
+.edit-icon{
+    color:rgb(29, 185, 37);
+    margin-left:20%;
+}
+
+.delete-icon{
+    color: rgb(253, 184, 95);
+    margin-left:20%;
+}
+
+/*----------------------------Admin Comments ----------------------*/
+
+.comments-tr{
+    margin-bottom: 20px;
+    border-bottom:1px solid rgb(212, 212, 212);
+    border-top: 1px solid rgb(211, 208, 208);
+    padding-left:20px;
+    
+}
+
+.admin-comments-table{
+    width:90%;
+    background: white;
+    padding: 20px;
+    font-size:18px;
+    line-height: 200%;
+    text-align: start;
+    border: 1.5px solid black;
+    border-collapse: collapse;
+}
+
+.admin-courses-tiny-col{
+    width:1%;
+}

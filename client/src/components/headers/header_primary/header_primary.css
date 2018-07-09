@@ -1,0 +1,13 @@
+.header-primary {
+  display: inline-block;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: 3.5rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+  background-image: linear-gradient(to right, #4eff95, #1fa2ff); }
+
+.header-primary:hover {
+  transform: rotate(10deg) scale(1.2); }

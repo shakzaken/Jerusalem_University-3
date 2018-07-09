@@ -1,0 +1,25 @@
+@import '../../../sass/global.scss';
+
+.button-secondary{
+  border: 1.5px solid $secondary-color-dark;
+  background: white;
+  color: $secondary-color-dark;
+  padding: 1rem 1.5rem;
+  font-size: 1.8rem;
+  cursor: pointer;
+  text-decoration: none;
+  border-radius: 10rem;
+  font-weight: 500;
+  
+  
+  &:hover,
+  &:focus{
+    background: $secondary-color-dark;
+    box-shadow: 2px 2px 2px rgba(black,0.15);
+    color:white;
+    border:none;
+    outline: none;
+  }
+  
+}
+

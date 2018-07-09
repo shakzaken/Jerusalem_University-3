@@ -1,0 +1,171 @@
+
+.section-a{
+    padding: 40px;
+    background: #f4f4f4;
+    background-image: linear-gradient(var(--first),var(--second)),url('/img/main/pic8.jpeg');
+    height:400px;
+    background-position: center;
+    background-color: #12d8fa;
+    border-bottom: 2px solid #fff;
+}
+
+.a-header{
+    margin-top:200px;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 400;
+    color:white;
+    
+    
+}
+
+
+
+/* ------------------------ Section B ------------------------*/
+
+.section-b{
+    background-color: #f4f4f4;
+    padding : 70px 0;
+}
+
+
+.b-grid{
+    margin: 0 auto ;
+    width:90%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+.card{
+    
+    border : 1px solid black;
+    margin:20px;
+    display: flex; 
+    align-items: stretch;
+    height:250px; 
+}
+
+.card-img-container{
+    flex:3;
+}
+
+.card-img{
+    width:100%;
+    height:100%;
+}
+
+.card-body{
+    flex:2;
+    background: #fff;
+    display : flex;
+    flex-direction: column;
+}
+.card-header{
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top:10px;
+    flex:1;
+}
+
+.card-text{
+    flex:4;
+    text-align: center;
+    overflow: hidden;
+    padding:5px;
+}
+
+.card-button-container{
+    flex:2;
+    text-align: center;
+}
+
+.card-button{
+    border: 1.5px solid #12d8fa;
+    background: white;
+    color:#12d8fa;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+
+}
+
+.card-button:hover{
+    background: #12d8fa;
+    color:white;
+}
+
+@media(max-width:900px){
+
+    .b-grid{
+        margin: 0 auto ;
+        width:70%;
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media(max-width:600px){
+    .section-a{
+        height:250px;
+       
+    }
+
+    .a-header{
+        margin-top:100px;
+        text-align: center;
+        font-size: 18px;
+        font-weight: 400;
+        color:white;
+        
+    }
+
+    .b-grid{
+        margin: 0 auto ;
+        width:95%;
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .card{
+    
+        border : 1px solid black;
+        margin:20px 10px;
+        display: flex; 
+        align-items: stretch;
+        height:200px; 
+        
+    }
+
+    .card-text{
+        flex:4;
+        text-align: center;
+        overflow: hidden;
+        padding:5px;
+        font-size:12px;
+    }
+
+    .section-b{
+        background-color: #f4f4f4;
+        padding : 15px 0;
+    }
+
+    .card-button{
+        
+        padding: 5px;
+        font-size: 12px;
+    
+    }
+
+
+}
+
+
+
+
+
+
+  

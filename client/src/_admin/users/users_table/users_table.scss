@@ -1,0 +1,55 @@
+#user-image{
+  display: none;
+}
+
+.user-image{
+  width:80%;
+  height:50px;
+  background:rgb(236, 236, 236); 
+  border-radius: 50%;
+}
+
+.admin-users-header{
+  font-size:30px;
+  margin-bottom: 20px;
+  font-weight: 400;
+  margin-left:10%;
+
+}
+
+.admin-users-table{
+  width:90%;
+  background: white;
+  padding: 20px;
+  font-size:18px;
+  line-height: 200%;
+  text-align: start;
+  border: 1.5px solid black;
+}
+
+
+.admin-users-table th
+{
+  
+  text-align: start;
+}
+
+.admin-users-big-col{
+  width:20%;
+}
+.admin-users-small-col{
+  width:5%;
+}
+.admin-users-medium-col{
+  width:12%;
+}
+
+.edit-icon{
+  color:rgb(29, 185, 37);
+  margin-left:20%;
+}
+
+.delete-icon{
+  color: rgb(253, 184, 95);
+  margin-left:20%;
+}

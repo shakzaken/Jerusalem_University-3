@@ -1,0 +1,43 @@
+
+.hidden{
+  display: none;
+}
+
+.admin-grid{
+    height: auto;
+    min-height: 800px;
+    display: flex;
+    
+}
+
+.admin-main{
+    flex:4;
+    height:auto;
+    background: #f4f4f4;
+    
+}
+
+.admin-main-block{
+    padding:5% 10%;
+    width:100%;
+     
+}
+
+.admin-footer{
+    background: white;
+    color:black;
+}
+
+
+.admin-form{
+    background: white;
+    border: 1.5px solid black;
+    padding:20px;
+    width:60%;
+    font-size:18px;
+    
+}
+
+
+
+

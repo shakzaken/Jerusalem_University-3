@@ -1,0 +1,40 @@
+.home-card {
+  border: 0.7px solid #d1d1d1;
+  margin: 20px;
+  display: flex;
+  align-items: stretch;
+  height: 250px; }
+
+.home-card:hover {
+  box-shadow: 0 1.5px 2px rgba(0, 0, 0, 0.15); }
+
+.home-card-container {
+  flex: 3; }
+
+.home-card-image {
+  width: 100%;
+  height: 100%; }
+
+.home-card-body {
+  flex: 2;
+  background: #fff;
+  display: flex;
+  flex-direction: column; }
+
+.home-card-header {
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  flex: 1; }
+
+.home-card-text {
+  flex: 4;
+  text-align: center;
+  overflow: hidden;
+  padding: 5px; }
+
+.home-card-button {
+  flex: 2;
+  text-align: center; }
