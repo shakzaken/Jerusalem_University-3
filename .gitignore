@@ -13,6 +13,7 @@ yarn-error.log
 .env
 
 /client/node_modules
-/client/public
+/client/public/img
+/client/public/webfonts
 
 
