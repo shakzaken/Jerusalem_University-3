@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import {Link} from 'react-router-dom';
 
 export default class componentName extends Component {
   render() {
@@ -6,10 +7,10 @@ export default class componentName extends Component {
       <footer className="footer">
         <div className="footer-grid">
           <ul className="footer-ul-1">
-            <li><a href="<?php echo URLROOT;?>">Home</a></li>
-            <li><a href="<?php echo URLROOT;?>/admin">Admin</a></li>
-            <li><a href="<?php echo URLROOT;?>/users/login">Login</a></li>
-            <li><a href="<?php echo URLROOT;?>/users/register">Register</a></li>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/admin">Admin</Link></li>
+            <li><Link to="/login">Login</Link></li>
+            <li><Link to="/register">Register</Link></li>
           </ul>
           <ul className="footer-ul-2">
             <li>shakzaken@gmail.com</li>

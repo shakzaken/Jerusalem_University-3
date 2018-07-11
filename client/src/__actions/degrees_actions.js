@@ -1,5 +1,5 @@
-import {GET_DEGREES,NEW_DEGREE, START_LOADING,CLEAR_ERRORS,
-  DELETE_DEGREE, ERRORS, GET_DEGREE_COURSES,
+import {GET_DEGREES,NEW_DEGREE, DEGREES_START_LOADING,CLEAR_ERRORS,
+  DELETE_DEGREE, DEGREES_ERRORS, GET_DEGREE_COURSES,
    DELETE_DEGREE_COURSES, ADD_DEGREE_COURSES} from './types';
 import {Config} from '../config/config';
 import axios from 'axios';
@@ -9,7 +9,7 @@ const serverURL = Config.serverUrl;
 
 export const startLoading = () => {
   return {
-    type: START_LOADING,
+    type: DEGREES_START_LOADING,
     payload: {}
   }
 }
@@ -34,7 +34,7 @@ export const createDegree = function(postData,callback){
   let errors = validateDegree(postData);
   if(Object.keys(errors).length > 0){
     return {
-      type: ERRORS,
+      type: DEGREES_ERRORS,
       payload: errors
     };
   }
@@ -50,7 +50,7 @@ export const createDegree = function(postData,callback){
     .catch(err => {
       console.log(err);
       dispatch({
-        type: ERRORS,
+        type: DEGREES_ERRORS,
         payload: {name:'server error'}
       });
     });  
@@ -68,7 +68,7 @@ export const deleteDegree = (id,callback) => dispatch =>{
       callback();
     })
     .catch(err => dispatch({
-      type: ERRORS,
+      type: DEGREES_ERRORS,
       payload : {errors: 'error deleting degree'}
     }));
   
@@ -78,10 +78,11 @@ export const deleteDegree = (id,callback) => dispatch =>{
 export const getDegreeWithCourses = (id,loading = false) => dispatch =>{
 
   axios.get(`${serverURL}/degrees/${id}`)
-    .then(res => { dispatch({
+    .then(res => { 
+      res.data.loading = loading;
+      dispatch({
         type: GET_DEGREE_COURSES,
-        payload: res.data,
-        loading: loading
+        payload: res.data
       });
     })
     .catch(err => console.log(err));
@@ -99,7 +100,7 @@ export const addCourseToDegree = (data,callback) => dispatch => {
     .catch(err => {
       console.log(err);
       dispatch({
-        type: ERRORS,
+        type: DEGREES_ERRORS,
         payload: {errors: 'Error in adding  course to degree'}
       });
     });
@@ -116,7 +117,7 @@ export const deleteCourseFromDegree = (id,callback) => dispatch => {
     })
     .catch(err =>{
       dispatch({
-        type:ERRORS,
+        type: DEGREES_ERRORS,
         payload: {errors: 'Error deleting course from degree'}
       })
     });

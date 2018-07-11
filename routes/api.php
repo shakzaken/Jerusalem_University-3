@@ -28,6 +28,9 @@ Route::post('users','UsersController@store');
 Route::put('users/{id}','UsersController@update');
 Route::delete('users/{id}','UsersController@destroy');
 
+Route::get('users/students/{id}','UsersController@getUserWithDegree');
+Route::post('users/students/register','UsersController@registerToDegree');
+
 
 /*
 *   Courses 
@@ -39,14 +42,18 @@ Route::get('courses/{id}','CoursesController@show');
 Route::get('courses','CoursesController@index');
 
 Route::post('courses/topics','CoursesController@addTopic');
-Route::post('courses/comments','CoursesController@addComment');
 Route::post('courses','CoursesController@store');
 
 Route::put('courses/{id}','CoursesController@update');
-
 Route::delete('courses/{id}','CoursesController@destroy');
-Route::delete('courses/comments/{id}','CoursesController@deleteComment');
 Route::delete('courses/topics/{id}','CoursesController@deleteTopic');
+
+
+
+// Comments
+Route::get('comments','CommentsController@getAllComments');
+Route::post('comments','CommentsController@addComment');
+Route::delete('comments/{id}','CommentsController@addComment');
 
 
 /*

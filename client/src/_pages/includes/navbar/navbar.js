@@ -17,7 +17,7 @@ class Navbar extends Component {
           <div className="space-div"></div>
           <ul className="nav-left-ul">
             <Link className="medium-li" to="/">Home</Link>
-            <Link className="big-li" to="/private-area">My Courses</Link>
+            <Link className="big-li" to="/students">My Courses</Link>
             <Link className="medium-li" to="/admin">Admin</Link>
           </ul>
           {rightList(this.props)}

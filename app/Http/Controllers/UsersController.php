@@ -10,6 +10,8 @@ use App\Http\Requests;
 use App\User;
 use App\UserImage;
 use App\Course;
+use App\Degree;
+use App\StudentCourse;
 use App\Http\Resources\User as UserResource;
 
 
@@ -35,14 +37,71 @@ class UsersController extends Controller
         
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+    public function registerToDegree(Request $request){
+      try{
+        $user = User::find($request->userId);
+        if($user->role !=='student'){
+          return response([
+            'general' => 'User is not a student'
+          ],400);
+        }
+        if($user->is_registered){
+          return response([
+            'general' => 'User is already registered'
+          ],400);
+        }
+        $user->degree_id = $request->degreeId;
+        $user->is_registered = true;
+        $user->save();
+        $courses = 
+          DB::table('degrees_courses')
+            ->where('degrees_courses.degree_id','=',$request->degreeId)
+            ->join('courses','degrees_courses.course_id','=','courses.id')
+            ->get();
+            
+        foreach($courses as $course){
+          $studentCourse = new StudentCourse;
+          $studentCourse->student_id = $user->id;
+          $studentCourse->course_id = $course->id;
+          $studentCourse->save();
+        }
+
+        return response($user);
+
+      }catch(QueryException $err){
+        return response([
+          'general' => 'error registring user',
+          'message' => $err->getMessage()
+        ],500);
+      }
+      
+    }
+
+    public function getUserWithDegree($userId){
+      try{
+        $user = User::find($userId);
+        $user->image;
+        $degree = Degree::find($user->degree_id);
+        $courses = 
+          DB::table('students_courses')
+          ->where('student_id','=',$user->id)
+          ->join('courses','students_courses.course_id','=','courses.id')
+          ->join('courses_images','students_courses.course_id','=','courses_images.id')
+          ->get();
+      
+        return response([
+          'user' => $user,
+          'degree' => $degree,
+          'courses' => $courses
+        ]);
+      }
+      catch(Exception $err){
+        return response([
+          'general' => 'error getting user and courses'
+        ],500);
+      }
+      
+                    
     }
 
     /**
@@ -53,10 +112,8 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-
-      
+  
       try{
-    
         $user = new User;
         $user->first_name = $request->firstName;
         $user->last_name = $request->lastName;
@@ -65,7 +122,6 @@ class UsersController extends Controller
         $user->role = $request->role;
 
         $userImage = new UserImage;
-       
         $userImage->body = $request->image;
 
         $user->save();

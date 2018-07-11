@@ -18,6 +18,8 @@ export const loginUser = (data,callback) => dispatch => {
   }
   axios.post(`${serverURL}/auth/login`,data)
     .then(res =>{
+      localStorage.setItem('token',res.data.token);
+      localStorage.setItem('user',JSON.stringify(res.data.user));
       dispatch({
         type: LOGIN_USER,
         payload: res.data
@@ -34,6 +36,7 @@ export const loginUser = (data,callback) => dispatch => {
   }
 
 export const logout = (callback) =>{
+  localStorage.clear();
   return {
     type: LOGOUT_USER,
     payload: {}

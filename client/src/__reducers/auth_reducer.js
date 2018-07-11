@@ -2,10 +2,10 @@ import {GET_USERS, NEW_USER, START_LOADING , CLEAR_ERRORS,LOGIN_USER,
   ERRORS, DELETE_USER, GET_INSTRUCTORS, LOGOUT_USER} from '../__actions/types';
 
 const initialState = {
-  user: {},
+  user: JSON.parse(localStorage.getItem('user')),
   errors:{},
   loading: true,
-  token: ''
+  token: localStorage.getItem('token')
 }
 
 export default function(state = initialState, action) {

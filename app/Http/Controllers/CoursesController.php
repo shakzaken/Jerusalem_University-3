@@ -32,13 +32,7 @@ class CoursesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($id)
-    {
-      
-     
-        
-        
-    }
+    
 
     /**
      * Store a newly created resource in storage.
@@ -180,26 +174,7 @@ class CoursesController extends Controller
       }
     }
 
-    public function addComment(Request $request){
-      try{
-        $comment = new Comment;
-        $comment->course_id = $request->courseId;
-        $comment->user_id = $request->userId;
-        $comment->body = $request->body;
-        $comment->save();
-        return response($comment);
-      }catch(QueryException $err){
-        return response($err->getMessage(),500);
-      }
-    }
+    
 
-    public function deleteComment($id){
-      try{
-        $comment = Comment::find($id);
-        $comment->delete();
-        return response($comment);
-      }catch(QueryException $err){
-        return response($err->getMessage(),500);
-      }
-    }
+    
 }

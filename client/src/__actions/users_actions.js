@@ -1,6 +1,7 @@
-import {GET_USERS,NEW_USER, START_LOADING,
-  ERRORS,DELETE_USER,GET_INSTRUCTORS, 
-  CLEAR_ERRORS,LOGIN_USER} from './types';
+import {GET_USERS,NEW_USER, USERS_START_LOADING,
+  USERS_ERRORS,DELETE_USER,GET_INSTRUCTORS, 
+  CLEAR_ERRORS,LOGIN_USER,STUDENT_DATA
+  ,REGISTER_STUDENT} from './types';
 import {validateUser ,validateLogin} from '../helpers/validations/usersValidations';
 import {Config} from '../config/config';
 import axios from 'axios';
@@ -31,7 +32,7 @@ export const createUser = function(postData,callback){
   let errors = validateUser(postData);
   if(Object.keys(errors).length > 0){
     return {
-      type: ERRORS,
+      type: USERS_ERRORS,
       payload: errors
     };
   }
@@ -49,7 +50,7 @@ export const createUser = function(postData,callback){
     .catch(err => {
       console.log(err);
       dispatch({
-        type: ERRORS,
+        type: USERS_ERRORS,
         payload: {firstName:'server error'}
       });
     });  
@@ -67,16 +68,51 @@ export const deleteUser = (id,callback) => dispatch =>{
       callback();
     })
     .catch(err => dispatch({
-      type: ERRORS,
+      type: USERS_ERRORS,
       errors : {firstName: 'error deleting user'}
     }));
-  
 }
+
+
+export const getStudentData = (id,callback) => dispatch => {
+  axios.get(`${serverURL}/users/students/${id}`)
+    .then(res => {
+      dispatch({
+        type: STUDENT_DATA,
+        payload: res.data
+      });
+      if(callback) { callback();} 
+    })
+    .catch(err =>{
+      console.log(err);
+      dispatch({
+        type: USERS_ERRORS,
+        payload: err.response.data
+      });
+    });
+}
+
+export const registerStudent = (data,callback) => dispatch => {
+  axios.post(`${serverURL}/users/students/register`,data)
+    .then(res =>{
+      dispatch({
+        type: REGISTER_STUDENT,
+        payload: res.data
+      });
+      callback();
+    })
+    .catch(err =>{
+      dispatch({
+        type: USERS_ERRORS,
+        payload: err.response.data
+      });
+    })
+} 
 
 
 export const startLoading = () => {
   return {
-    type: START_LOADING,
+    type: USERS_START_LOADING,
     payload: {}
   }
 }
