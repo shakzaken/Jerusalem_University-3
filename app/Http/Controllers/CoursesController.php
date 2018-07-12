@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Database\QueryException;
 use App\Course;
@@ -73,24 +74,28 @@ class CoursesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+  
+
     public function show($id)
     {
         $course = Course::find($id);
         $course->image;
-        $course->topics;
-        $comments = Course::find($id)->comments;
+        $topics = 
+          DB::table('topics')
+            ->where('topics.course_id','=',$id)
+            ->get();
+        $comments = 
+          DB::table('comments')
+            ->where('comments.course_id','=',$id)
+            ->join('users','comments.user_id','=','users.id')
+            ->join('users_images','comments.user_id','=','users_images.id')
+            ->get();
         
-        foreach($comments as $comment){
-          $comment->user;
-          $comment->image;
-        }
-
-        $data = [
+        return response([
           'course' => $course,
+          'topics' => $topics,
           'comments' => $comments
-        ];
-        
-        return response($data);
+        ]);
     }
 
     /**

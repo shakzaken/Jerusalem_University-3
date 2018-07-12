@@ -2,13 +2,14 @@
 /* -------------------------- Section -G -----------------*/
 
 .course-body{
-  background: white;
+  background: #f4f4f4;
   padding: 8rem 0;
 
   &-grid{
     width:90%;
     margin: 0 auto;
     display: grid;
+    grid-gap: 5rem;
     grid-template-columns: 4fr 3fr;
   }
 }

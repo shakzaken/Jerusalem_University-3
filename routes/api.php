@@ -53,7 +53,7 @@ Route::delete('courses/topics/{id}','CoursesController@deleteTopic');
 // Comments
 Route::get('comments','CommentsController@getAllComments');
 Route::post('comments','CommentsController@addComment');
-Route::delete('comments/{id}','CommentsController@addComment');
+Route::delete('comments/{id}','CommentsController@deleteComment');
 
 
 /*

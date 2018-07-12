@@ -1,6 +1,6 @@
 import {
    GET_DEGREES, NEW_DEGREE, DEGREES_START_LOADING,
-   DEGREES_ERRORS ,DELETE_DEGREE,GET_DEGREE_COURSES, CLEAR_ERRORS,
+   DEGREES_ERRORS ,DELETE_DEGREE,GET_DEGREE_COURSES, DEGREES_CLEAR_ERRORS,
   ADD_DEGREE_COURSES,DELETE_DEGREE_COURSES
 } from '../__actions/types';
 
@@ -16,7 +16,7 @@ const initialState = {
 export default function(state = initialState, action) {
   switch (action.type) {
 
-    case CLEAR_ERRORS:
+    case DEGREES_CLEAR_ERRORS:
       return {
         ...state,
         errors: {}

@@ -1,7 +1,8 @@
 .course-header {
-  padding: 0 0 3rem 0;
-  background-image: linear-gradient(rgba(166, 255, 203, 0.6), rgba(18, 216, 250, 0.6)), url("/img/main/pic8.jpeg");
-  background-size: cover; }
+  padding: 3rem 0;
+  background-image: linear-gradient(rgba(166, 255, 203, 0.3), rgba(18, 216, 250, 0.3)), url("/img/main/pic8.jpeg");
+  background-size: cover;
+  border-bottom: 5px solid #1fa2ff; }
 
 .course-header-grid {
   width: 100%;
@@ -12,24 +13,37 @@
 
 .course-header-title {
   grid-column: 5/8;
-  grid-row: 2/3;
-  text-align: center;
-  font-size: 3.5rem;
-  color: #a6ffcb;
-  font-weight: 400;
-  transition: all .3s; }
+  grid-row: 2/3; }
 
-.course-header-title:hover {
-  transform: rotate(10deg) scale(1.1); }
+.course-header-title h2 {
+  display: inline-block;
+  padding: 1rem 2rem;
+  font-size: 3rem;
+  font-weight: 400;
+  color: #4eff95;
+  cursor: pointer;
+  text-align: center;
+  background: rgba(18, 216, 250, 0.3);
+  border-radius: 10rem;
+  border: 3px solid #4eff95;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  transition: all .2s;
+  text-transform: uppercase;
+  letter-spacing: 2px; }
+
+.course-header-title h2:hover {
+  transform: translateY(-0.5rem) scale(1.05); }
 
 .course-header-container {
   border: 4px solid #a6ffcb;
   grid-row: 2/7;
   grid-column: 2/4;
-  transition: all .3s; }
+  transition: all .3s;
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4); }
 
 .course-header-container:hover {
-  transform: rotate(10deg) scale(1.1); }
+  transform: rotate(5deg) scale(1.05);
+  box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.4); }
 
 .course-header-image {
   width: 100%;

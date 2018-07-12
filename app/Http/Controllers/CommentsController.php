@@ -21,7 +21,7 @@ class CommentsController extends Controller
       $comment = new Comment;
       $comment->user_id = $user->id;
       $comment->course_id = $course->id;
-      $comment->body = $request->body;
+      $comment->comment_body = $request->body;
       $comment->save();
       return response($comment);
     }catch(QueryException $err){

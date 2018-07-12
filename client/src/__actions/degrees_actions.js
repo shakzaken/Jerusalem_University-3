@@ -1,4 +1,4 @@
-import {GET_DEGREES,NEW_DEGREE, DEGREES_START_LOADING,CLEAR_ERRORS,
+import {GET_DEGREES,NEW_DEGREE, DEGREES_START_LOADING,DEGREES_CLEAR_ERRORS,
   DELETE_DEGREE, DEGREES_ERRORS, GET_DEGREE_COURSES,
    DELETE_DEGREE_COURSES, ADD_DEGREE_COURSES} from './types';
 import {Config} from '../config/config';
@@ -15,7 +15,7 @@ export const startLoading = () => {
 }
 export const clearErrors = () => {
   return {
-    type: CLEAR_ERRORS,
+    type: DEGREES_CLEAR_ERRORS,
     payload: {}
   }
 }

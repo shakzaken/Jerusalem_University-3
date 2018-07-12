@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './course_header.css';
+import HeaderSecondary from '../../../components/headers/header_secondary/header_secondary';
 
 export default class CourseHeader extends Component {
   render() {
@@ -8,9 +9,12 @@ export default class CourseHeader extends Component {
       <div>
         <section className="course-header">
           <div className="course-header-grid">
-            <p className="course-header-title">
-              {this.props.course.name}
-            </p>
+         
+            <div className="course-header-title">
+              <h2>{this.props.course.name}</h2>
+            </div>
+          
+            
             <div className="course-header-container">
               <img className="course-header-image" 
                 src={loading ? "": this.props.course.image.body} alt="" />

@@ -1,21 +1,30 @@
-.comments-tr{
-  margin-bottom: 20px;
-  border-bottom:1px solid rgb(212, 212, 212);
-  border-top: 1px solid rgb(211, 208, 208);
-  padding-left:20px;
-  
+
+.admin-comments{
+
+  &-table{
+    width:90%;
+    background: white;
+    padding: 2rem;
+    font-size:1.8rem;
+    line-height: 160%;
+    text-align: start;
+    border: 1.5px solid black;
+    border-collapse: collapse;
+  }
+  &-row{
+    margin-bottom: 2rem;
+    border-bottom:1px solid rgb(212, 212, 212);
+    border-top: 1px solid rgb(211, 208, 208);
+  }
+
+  &-body{
+    letter-spacing: 100%;
+    font-size: 1.6rem;
+    line-height: 140%;
+  }
 }
 
-.admin-comments-table{
-  width:90%;
-  background: white;
-  padding: 20px;
-  font-size:18px;
-  line-height: 200%;
-  text-align: start;
-  border: 1.5px solid black;
-  border-collapse: collapse;
-}
+
 
 .admin-courses-tiny-col{
   width:1%;

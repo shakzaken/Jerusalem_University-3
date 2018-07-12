@@ -1,6 +1,6 @@
 import {
-  GET_COURSES, NEW_COURSE, START_LOADING , ERRORS, CLEAR_ERRORS,
-  ADD_TOPIC,DELETE_TOPIC,GET_TOPICS,
+  GET_COURSES, NEW_COURSE, COURSES_START_LOADING , COURSES_ERRORS, COURSES_CLEAR_ERRORS,
+  ADD_TOPIC,DELETE_TOPIC,GET_TOPICS,GET_COURSE_WITH_DATA,
   ADD_COMMENT,DELETE_COMMENT,GET_ALL_COMMENTS,GET_COMMENTS, DELETE_COURSE
 } from '../__actions/types';
 
@@ -9,23 +9,32 @@ const initialState = {
   course: {},
   loading: true,
   errors: {},
-  topics: []
+  topics: [],
+  comments: []
 }
 
 export default function(state = initialState, action) {
   switch (action.type) {
 
-    case CLEAR_ERRORS:
+    case GET_COURSE_WITH_DATA:
+      return {
+        ...state,
+        course: action.payload.course,
+        comments: action.payload.comments,
+        topics: action.payload.topics,
+        loading: false
+      }
+    case COURSES_CLEAR_ERRORS:
       return {
         ...state,
         errors: {}
       }
-    case ERRORS:
+    case COURSES_ERRORS:
       return{
         ...state,
         errors: action.payload
       }
-    case START_LOADING:
+    case COURSES_START_LOADING:
       return {
         ...state,
         loading: true 

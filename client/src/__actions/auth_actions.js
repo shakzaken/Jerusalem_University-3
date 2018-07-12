@@ -1,6 +1,6 @@
 import {GET_USERS,NEW_USER, START_LOADING,
-  ERRORS,DELETE_USER,GET_INSTRUCTORS, 
-  CLEAR_ERRORS,LOGIN_USER,LOGOUT_USER} from './types';
+  AUTH_ERRORS,DELETE_USER,GET_INSTRUCTORS, 
+  AUTH_CLEAR_ERRORS,LOGIN_USER,LOGOUT_USER} from './types';
 import {validateLogin} from '../helpers/validations/usersValidations';
 import {Config} from '../config/config';
 import axios from 'axios';
@@ -12,7 +12,7 @@ export const loginUser = (data,callback) => dispatch => {
   let errors = validateLogin(data);
   if(Object.keys(errors).length > 0){
     return dispatch({
-      type: ERRORS,
+      type: AUTH_ERRORS,
       payload : errors
     });
   }
@@ -29,7 +29,7 @@ export const loginUser = (data,callback) => dispatch => {
     .catch(error =>{
       console.log(error.response);
       return dispatch({
-        type: ERRORS,
+        type: AUTH_ERRORS,
         payload: error.response.data.errors
       });
     });
@@ -45,7 +45,7 @@ export const logout = (callback) =>{
 
 export const clearErrors = () => {
   return {
-    type: CLEAR_ERRORS,
+    type: AUTH_CLEAR_ERRORS,
     payload: {}
   }
 }

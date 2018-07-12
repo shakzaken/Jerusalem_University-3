@@ -1,13 +1,16 @@
 @import '../../../sass/global.scss';
 
 .course-header{
-  padding: 0 0 3rem 0;
+  
+  padding: 3rem 0;
   background-image:  linear-gradient(
-      rgba($secondary-color,0.6),
-      rgba($primary-color,0.6)),
+      rgba($secondary-color,0.3),
+      rgba($primary-color,0.3)),
       url("/img/main/pic8.jpeg");
       
-      background-size: cover;
+  background-size: cover;
+  border-bottom: 5px solid $primary-color-dark;
+  
 
   &-grid{
     width:100%;
@@ -19,17 +22,32 @@
   }
 
   &-title{
+    
     grid-column: 5/8;
     grid-row: 2/3;
-    text-align: center;
-    font-size: 3.5rem;
-    color: $secondary-color;
-    font-weight: 400;
-    transition: all .3s;
     
-    &:hover{
-      transform: rotate(10deg) scale(1.1);
+
+    h2{
+      display: inline-block;
+      padding: 1rem 2rem;
+      font-size: 3rem;
+      font-weight: 400;
+      color: $secondary-color-dark;
+      cursor: pointer;
+      text-align: center;
+      background: rgba($primary-color,0.3);
+      border-radius: 10rem;
+      border: 3px solid $secondary-color-dark;
+      box-shadow: 0 1rem 2rem rgba(black,0.2);
+      transition: all .2s;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+
+      &:hover{
+        transform: translateY(-0.5rem) scale(1.05);
+      }
     }
+
   }
 
   &-container{
@@ -37,9 +55,11 @@
     grid-row: 2/7;
     grid-column: 2/4;
     transition: all .3s;
+    box-shadow: 0 1rem 2rem rgba(black,0.4);
     
     &:hover{
-      transform: rotate(10deg) scale(1.1);
+      transform: rotate(5deg) scale(1.05);
+      box-shadow: 0 2rem 4rem rgba(black,0.4);
     }
   }
 

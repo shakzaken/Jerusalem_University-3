@@ -1,6 +1,6 @@
 import {GET_USERS,NEW_USER, USERS_START_LOADING,
   USERS_ERRORS,DELETE_USER,GET_INSTRUCTORS, 
-  CLEAR_ERRORS,LOGIN_USER,STUDENT_DATA
+  USERS_CLEAR_ERRORS,LOGIN_USER,STUDENT_DATA
   ,REGISTER_STUDENT} from './types';
 import {validateUser ,validateLogin} from '../helpers/validations/usersValidations';
 import {Config} from '../config/config';
@@ -119,7 +119,7 @@ export const startLoading = () => {
 
 export const clearErrors = () => {
   return {
-    type: CLEAR_ERRORS,
+    type: USERS_CLEAR_ERRORS,
     payload: {}
   }
 }

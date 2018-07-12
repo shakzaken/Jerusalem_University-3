@@ -1,4 +1,4 @@
-import {GET_USERS, NEW_USER, USERS_START_LOADING , CLEAR_ERRORS,
+import {GET_USERS, NEW_USER, USERS_START_LOADING , USERS_CLEAR_ERRORS,
   USERS_ERRORS, DELETE_USER, GET_INSTRUCTORS, STUDENT_DATA,REGISTER_STUDENT} from '../__actions/types';
 
 const initialState = {
@@ -35,7 +35,7 @@ export default function(state = initialState, action) {
         ...state,
         errors: action.payload
       }
-    case CLEAR_ERRORS:
+    case USERS_CLEAR_ERRORS:
       return {
         ...state,
         errors: {}

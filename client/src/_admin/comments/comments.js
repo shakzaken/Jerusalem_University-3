@@ -1,7 +1,33 @@
 import React, { Component } from "react";
+import {connect} from 'react-redux';
+import {getAllComments,deleteComment} from '../../__actions/comments_actions';
+import './comments.css';
 
-export default class comments extends Component {
+class Comments extends Component {
+
+  componentDidMount(){
+    this.props.getAllComments();
+  }
+
+  deleteComment(id){
+    if(!window.confirm('Are you sure you want to delete this comment?')) { return; }
+    this.props.deleteComment(id,() => this.props.getAllComments());
+  }
+
   render() {
+    const comments = this.props.comments.map(comment => 
+      <tr className="admin-comments-row">
+        <td />
+        <td>
+          <strong>id: </strong> {comment.comment_id} <br />
+          <strong>Name: </strong>{comment.first_name} {comment.last_name}<br />
+          <strong>Course: </strong>{comment.name}
+        </td>
+        <td class="admin-comments-body">{comment.comment_body}</td>
+        <td onClick={() => this.deleteComment(comment.comment_id)}>Delete</td>
+      </tr>
+    )
+    
     return (
       <div>
         <h2 className="admin-courses-header">Comments Table</h2>
@@ -15,21 +41,18 @@ export default class comments extends Component {
             </tr>
           </thead>
           <tbody>
-            {/*php foreach($data['comments'] as $comment) : ?> */}
-            <tr className="comments-tr">
-              <td />
-              <td>
-                <strong>id: </strong> comment_id; <br />
-                <strong>Name: </strong>Name<br />
-                <strong>Course: </strong>course_name;
-              </td>
-              <td>comment->body</td>
-              <td />
-            </tr>
-            {/*php endforeach ; ?> */}
+            {comments}
           </tbody>
         </table>
       </div>
     );
   }
 }
+
+const mapStateToProps = (state) =>{
+  return {
+    comments: state.comments.commentsList
+  };
+}
+
+export default connect(mapStateToProps,{getAllComments,deleteComment})(Comments);

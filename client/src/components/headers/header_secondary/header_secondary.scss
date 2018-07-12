@@ -1,0 +1,27 @@
+@import '../../../sass/global.scss';
+
+
+
+
+.header-secondary{
+  display: inline-block;
+  background-image: linear-gradient(
+    to right,rgb(8, 121, 51),rgb(31, 89, 196));
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  letter-spacing: 2px;
+  transition: all .2s;
+  cursor: pointer;
+  font-size: 3.5rem;
+  font-weight: 500;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid rgb(31, 171, 196);
+  
+  
+
+  &:hover{
+    transform: rotate(10deg) scale(1.1);
+    
+  }
+}

@@ -1,12 +1,13 @@
 
 
 .course-comment{
-  background-color: #f4f4f4;
+  background-color: rgba(white,0.8);
   border-radius: 3rem;
   padding: 2rem;
   margin-top: 3rem;
   margin-bottom: 1rem;
   height:auto;
+  box-shadow: 0 .5rem 1rem rgba(black,0.15);
 
   .course-comment-grid{
     display: grid;
