@@ -1,8 +1,8 @@
 import {GET_USERS,NEW_USER, USERS_START_LOADING,
   USERS_ERRORS,DELETE_USER,GET_INSTRUCTORS, 
-  USERS_CLEAR_ERRORS,LOGIN_USER,STUDENT_DATA
+  USERS_CLEAR_ERRORS,STUDENT_DATA
   ,REGISTER_STUDENT} from './types';
-import {validateUser ,validateLogin} from '../helpers/validations/usersValidations';
+import {validateUser } from '../helpers/validations/usersValidations';
 import {Config} from '../config/config';
 import axios from 'axios';
 

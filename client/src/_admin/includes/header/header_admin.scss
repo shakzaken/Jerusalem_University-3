@@ -18,67 +18,67 @@
 }
 
 
-.admin-header-pic1 > a,
-.admin-header-pic2 > a,
-.admin-header-pic3 > a,
-.admin-header-pic4 > a{
- 
-  color:white;
-  
-}
 
 
+.admin-header-picture{
 
-.admin-header-pic1,
-.admin-header-pic2,
-.admin-header-pic3,
-.admin-header-pic4{
   grid-row:1/2;
   font-size: 25px;
   color:white;
   text-align: center;
   padding-top:20px;
   border-radius: 50%;
-  border: 2px solid black;
+  transition: all .3s;
+ 
   cursor: pointer;
   text-decoration: none;
-}
+
+  &-one{
+    grid-column: 1/2;
+    background: rgb(82, 253, 66);
+    border: 2px solid rgb(63, 190, 51);
+    &:hover{
+      background: rgb(63, 190, 51);
+    }
+  }
+
+  &-two{
+    grid-column: 2/3;
+    background: rgb(243, 71, 71);
+    border: 2px solid rgb(187, 55, 55);
+    &:hover{
+      background: rgb(187, 55, 55);
+    }
+  }
+  &-three{
+    grid-column: 3/4;
+    background: rgb(92, 116, 252);
+    border: 2px solid rgb(70, 88, 189);
+    &:hover{
+      background: rgb(70, 88, 189);
+    }
+  }
+
+  &-four{
+    grid-column: 4/5;
+    background: rgb(220, 79, 248);
+    border: 2px solid rgb(170, 61, 192);
+    &:hover{
+      background: rgb(170, 61, 192);
+    }
+  }
+
+  & a{
+    color:white;
+  }
+
+  &:hover{
+    transform: scale(1.05);
+  }
 
 
-
-
-
-.admin-header-pic1{
-
-  grid-column: 1/2;
-  background: rgb(82, 253, 66);
-}
-.admin-header-pic1:hover{
-  background: rgb(63, 190, 51);
 }
 
-
-.admin-header-pic2{
-  grid-column: 2/3;
-  background: rgb(243, 71, 71);
-}
-.admin-header-pic2:hover{
-  background: rgb(187, 55, 55);
-}
-.admin-header-pic3{
-  grid-column: 3/4;
-  background: rgb(92, 116, 252);
-}
-.admin-header-pic3:hover{
-  background: rgb(70, 88, 189);
-}
-.admin-header-pic4{
-  grid-column: 4/5;
-  background: rgb(220, 79, 248);
-}
-.admin-header-pic4:hover{
-  background: rgb(170, 61, 192);
-}
 
 .admin-header-icon{
   font-size: 60px;

@@ -1,24 +1,27 @@
+.image-input {
+  display: block;
+  cursor: pointer;
+  margin-top: .5rem;
+  background: #fa7878;
+  color: white;
+  height: 7rem;
+  width: 12rem;
+  font-size: 27px;
+  padding-left: 15px; }
+
+.image-input-group {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  margin-top: 2rem; }
+
 .form-group-large {
   display: grid;
   grid-template-columns: 2fr 3fr;
-  margin-top: 20px;
-  height: 120px; }
+  margin-top: 2rem; }
 
 .err-msg {
   color: red;
   font-weight: 300; }
-
-.file-input,
-.register-file-input {
-  display: block;
-  cursor: pointer;
-  margin-top: 5px;
-  background: #fa7878;
-  color: white;
-  height: 70px;
-  width: 120px;
-  font-size: 27px;
-  padding-left: 15px; }
 
 .file-input:hover {
   background: #e23149;

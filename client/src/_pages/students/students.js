@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./students.css";
+
 import {connect} from 'react-redux';
 import {startLoading,getStudentData} from '../../__actions/users_actions';
 import CourseRow from './course_row/course_row';

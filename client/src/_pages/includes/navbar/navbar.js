@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import './navbar.css';
 import {logout} from '../../../__actions/auth_actions';
 
 
@@ -12,8 +11,8 @@ class Navbar extends Component {
 
   render() {
     return (
-      <header className="main-header">
-        <nav className="navbar">
+      <header className="main-header" >
+        <nav className="navbar" id="navbar">
           <div className="space-div"></div>
           <ul className="nav-left-ul">
             <Link className="medium-li" to="/">Home</Link>
@@ -54,11 +53,12 @@ function loginForm(props){
   return (
     <ul className="nav-right-ul">
       <li className="medium-li">
-        <Link className="" to="/login">Login</Link>
+        <a className="" href="#login">Login</a>
       </li>
       <li className="medium-li">
         <Link className="" to="/register">Register</Link>
       </li>
+      
     </ul>
   )
 }

@@ -1,0 +1,22 @@
+
+
+.admin-degrees-table{
+  &-header{
+    margin: 2rem;
+  }
+
+
+  &-link{
+    color:rgb(159, 103, 250);
+  }
+
+  &-image{
+    border:none;
+    height:7rem;
+    width: 15rem;
+    border: .5px solid rgb(218, 218, 218);
+  }
+}
+
+
+

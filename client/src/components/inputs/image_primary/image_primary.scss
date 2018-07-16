@@ -1,8 +1,74 @@
+
+
+.image-input{
+
+  display: block;
+  cursor: pointer;
+  margin-top:.5rem;
+  position: relative;
+  font-size:2.7rem;
+  z-index: 5;
+  
+ 
+  
+
+  &-group{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    margin-top:2rem;
+    padding: 0 2rem;
+  }
+
+  &-text{
+    display: block;
+    font-size: 1.3rem;
+    margin-bottom: 2px;
+    margin-left: -5px;
+  }
+
+  &-icon{
+    font-size:5rem;
+    color: $admin-color-dark;
+    z-index: 10;
+    cursor: pointer;
+    
+    &::after {
+      position: absolute;
+      left:1.2rem;
+      top:1.2rem;
+      content: "";
+      width: 3rem;
+      height: 3rem;
+      background-color: white;
+      z-index: -1;
+    }
+
+    &:hover{
+      color: red;
+    }
+    
+  }
+
+  &-err{
+    margin-left:1rem;
+  }
+
+  &-element{
+    display: none;
+  }
+  
+}
+
+
+
+
+
+/*
 .form-group-large{
   display: grid;
   grid-template-columns: 2fr 3fr;
-  margin-top:20px;
-  height:120px;
+  margin-top:2rem;
+  
 }
 
 .err-msg{
@@ -13,16 +79,7 @@
 
 .file-input,
 .register-file-input{
-    display: block;
-    cursor: pointer;
-    margin-top:5px;
-    background: rgb(250, 120, 120);
-    color: white;
-    height:70px;
-    width:120px;
     
-    font-size:27px;
-    padding-left:15px;
  
 }
 
@@ -39,3 +96,4 @@
   display: none;
 }
 
+*/

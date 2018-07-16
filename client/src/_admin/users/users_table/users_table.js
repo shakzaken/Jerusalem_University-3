@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {getUsers, startLoading, deleteUser} from '../../../__actions/users_actions';
-import './users_table.css';
+
 import UserRow from '../user_row/user_row';
 
 class users extends Component {
@@ -39,17 +39,19 @@ class users extends Component {
     );
 
     return (
-      <div>
-        <h2 className="admin-users-header">Users Table</h2>
-        <table className="admin-users-table">
+      <div className="admin-table">
+        <div className="admin-users-table-header">
+          <h2 className="admin-form-header admin-form-header-fix">Users Table</h2>
+        </div>
+        <table>
           <thead>
             <tr>
-              <th className="admin-users-medium-col">Image</th>
-              <th className="admin-users-big-col">Name</th>
-              <th className="admin-users-big-col">Email</th>
-              <th className="admin-users-medium-col">Role</th>
-              <th className="admin-users-small-col">Id</th>
-              <th className="admin-users-small-col">Delete</th>
+              <th className="admin-table-medium-col">Image</th>
+              <th className="admin-table-big-col">Name</th>
+              <th className="admin-table-big-col">Email</th>
+              <th className="admin-table-medium-col">Role</th>
+              <th className="admin-table-small-col">Id</th>
+              <th className="admin-table-small-col">Delete</th>
             </tr>
           </thead>
           <tbody>

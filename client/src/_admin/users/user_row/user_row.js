@@ -1,5 +1,5 @@
 
-import "./user_row.css";
+
 
 import React, { Component } from "react";
 

@@ -1,4 +1,4 @@
-@import '../../../sass/global.scss';
+
 
 
 
@@ -6,17 +6,25 @@
     border: 1.5px solid rgb(253, 95, 95);
     background: white;
     color: rgb(253, 95, 95);
-    width:120px;
-    height:50px;
-    font-size:18px;
-    margin-left:60%;
-    margin-top:5%;
+    width: 12rem;
+    height: 5rem;
+    font-size: 1.8rem;
     cursor: pointer;
+    transition: all .3s;
+    border-radius: 10rem;
 
   &:hover{
       border: none;
       background: rgb(253, 95, 95);
       color: white;
+      transform: translateY(-1rem);
+      box-shadow: 0 1rem 2rem rgba(black, .2);
+  }
+
+  &:focus{
+    outline: none;
+    transform: translateY(-.5rem);
+    border: 1.5px solid rgb(95, 177, 253);
   }
 }
 

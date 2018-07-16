@@ -8,7 +8,7 @@ import {
   deleteCourseFromDegree
 } from "../../../__actions/degrees_actions";
 import {getCourses} from '../../../__actions/courses_actions';
-import './degree_info.css';
+
 
 class DegreeInfo extends Component {
   constructor(props){
@@ -66,17 +66,19 @@ class DegreeInfo extends Component {
 
     return (
       <div className="admin-degree-info">
-        <div className="admin-degree-info-body">
+        <div className="admin-degree-info-body admin-table">
+          <div className="admin-degree-info-header">
+            <h1 className="admin-form-header">
+              {this.props.loading ? "" : this.props.degree.name}
+            </h1>
+          </div>
           
-          <h1 className="admin-degrees-header">
-            {this.props.startLoading ? "" : this.props.degree.name}
-          </h1>
           <table className="admin-degree-info-table">
             <thead>
               <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Delete</th>
+                <th className="admin-table-small-col">Id</th>
+                <th className="admin-table-medium-col">Name</th>
+                <th className="admin-table-small-col">Delete</th>
               </tr>
             </thead>
             <tbody>{rows}</tbody>

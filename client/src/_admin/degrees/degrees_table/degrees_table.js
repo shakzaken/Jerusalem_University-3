@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import './degrees_table.css';
 import DegreeRow from '../degree_row/degree_row';
 import PropTypes from 'prop-types';
 import { getDegrees,startLoading ,deleteDegree } from '../../../__actions/degrees_actions';
@@ -34,15 +33,17 @@ class degrees extends Component {
         />
     );
     return (
-      <div>
-        <h2 className="admin-degrees-header">Academic Degrees Table</h2>
-        <table className="admin-degrees-table">
+      <div className="admin-table">
+        <div className="admin-degrees-table-header">
+          <h2 className="admin-form-header admin-form-header-fix">Academic Degrees Table</h2>
+        </div>
+        <table >
           <thead>
             <tr>
-              <th className="admin-degrees-medium-col">Image</th>
-              <th className="admin-degrees-medium-col">Name</th>
-              <th className="admin-degrees-small-col">Id</th>
-              <th className="admin-degrees-small-col">Delete</th>
+              <th className="admin-table-small-col">Image</th>
+              <th className="admin-table-medium-col ">Name</th>
+              <th className="admin-table-small-col">Id</th>
+              <th className="admin-table-small-col">Delete</th>
             </tr>
           </thead>
           <tbody>

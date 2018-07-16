@@ -1,5 +1,4 @@
 import React from 'react';
-import './header_secondary.css';
 
 export default (props) => {
   return (

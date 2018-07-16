@@ -1,4 +1,81 @@
 
+@import './comments/comments.scss';
+@import './courses/courses.scss';
+@import './degrees/degrees.scss';
+@import './includes/includes.scss';
+@import './users/users.scss';
+
+
+
+
+.admin-form{
+  
+    display: inline-block;
+    width: 70%;
+    box-shadow: 0 2px 3px rgba(black,.1);
+    border: 1px solid rgb(219, 219, 219);   
+
+  &-header{
+    display: inline-block;
+    color: $admin-color;
+    cursor: pointer;
+    transition: all .3s;
+    font-size:2.5rem;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    
+    
+
+    &:hover{
+      transform: rotate(10deg) scale(1.1);
+    } 
+  }
+
+  &-button{
+    margin: 2rem 0 3rem 45%;
+  }
+}
+
+.admin-form-header-fix{
+  margin: 3rem 0 3rem 10rem;
+}
+
+.admin-table{
+  width:100%;
+  background: white;
+  padding: 2rem;
+  font-size: 1.8rem;
+  line-height: 200%;
+  text-align: start;
+  border: 1.5px solid rgb(224, 224, 224);
+
+  & th{
+    text-align: start;
+  }
+
+  &-big-col{
+    width:20%;
+  }
+  &-small-col{
+    width:5%;
+  }
+  &-medium-col{
+    width:12%;
+  }
+
+}
+
+.edit-icon{
+  color:rgb(29, 185, 37);
+  margin-left:20%;
+}
+
+.delete-icon{
+  color: rgb(253, 184, 95);
+  margin-left:20%;
+}
+
 .hidden{
   display: none;
 }
@@ -15,11 +92,13 @@
     height:auto;
     background: #f4f4f4;
     
+    
 }
 
 .admin-main-block{
     padding:5% 10%;
     width:100%;
+   // background: white;
      
 }
 
@@ -29,14 +108,9 @@
 }
 
 
-.admin-form{
-    background: white;
-    border: 1.5px solid black;
-    padding:20px;
-    width:60%;
-    font-size:18px;
-    
-}
+
+
+
 
 
 

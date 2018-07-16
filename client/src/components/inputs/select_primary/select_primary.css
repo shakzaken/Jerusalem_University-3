@@ -1,2 +1,9 @@
-.form-group > select {
-  height: 30px; }
+.select-input {
+  display: block;
+  width: 100%;
+  height: 3rem; }
+
+.select-input-label {
+  font-size: 1.3rem;
+  display: block;
+  margin-bottom: 3px; }

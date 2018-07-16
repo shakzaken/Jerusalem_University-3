@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import './home.css';
 import DegreeCard from './degree_card/degree_card';
 import {connect} from 'react-redux';
 import {getDegrees,startLoading} from '../../__actions/degrees_actions';
@@ -8,9 +7,7 @@ import {getDegrees,startLoading} from '../../__actions/degrees_actions';
 
 class Home extends Component {
 
-  constructor(props) {
-    super(props);
-  }
+  
 
   componentDidMount() {
     this.props.startLoading();

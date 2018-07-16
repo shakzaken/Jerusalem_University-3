@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import '../input_shared.css';
-import './image_primary.css';
 
 
 export default class image extends Component {
@@ -39,16 +37,16 @@ export default class image extends Component {
   render() {
     return (
       <div>
-        <div className="form-group-large">
+        <div className="image-input-group">
           <div>
-            <label htmlFor="">{this.props.label}</label>
-            <label htmlFor={this.props.id} className="file-input">
-              <i className="fas fa-cloud-upload-alt img-icon" />
+            <label className="image-input-text" htmlFor="">{this.props.label}</label>
+            <label htmlFor={this.props.id} className="image-label">
+              <i className="fas fa-cloud-upload-alt image-input-icon" />
             </label>
             <input
               type="file"
               id={this.props.id}
-              className="image-input"
+              className="image-input-element"
               name={this.props.name}
               onChange={this.handleChange}
             />
@@ -60,10 +58,11 @@ export default class image extends Component {
               className = {this.state.image ? "show-image": "show-image hidden"}
               />
           </div>
-        </div> 
-        <div className="err-msg">
-          {this.props.error ? this.props.error : ""}
         </div>
+        <div className="image-input-err err-msg">
+            {this.props.error ? this.props.error : ""}
+        </div> 
+        
       </div>
     );
   }

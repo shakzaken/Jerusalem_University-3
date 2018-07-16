@@ -9,7 +9,7 @@ import UserForm from "./users/user_form/user_form";
 import Courses from "./courses/courses_table/courses_table";
 import AddCourse from "./courses/course_form/course_form";
 import Comments from "./comments/comments";
-import DegreesTable from "./degrees/degree_table/degrees_table";
+import DegreesTable from "./degrees/degrees_table/degrees_table";
 import DegreeForm from "./degrees/degree_form/degree_form";
 import DegreeInfo from './degrees/degree_info/degree_info';
 import CourseInfo from './courses/course_info/course_info';

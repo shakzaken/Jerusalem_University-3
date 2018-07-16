@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import './course_header.css';
-import HeaderSecondary from '../../../components/headers/header_secondary/header_secondary';
+
+
 
 export default class CourseHeader extends Component {
   render() {

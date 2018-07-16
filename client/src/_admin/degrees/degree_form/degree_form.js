@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import './degree_form.css';
 import Input from "../../../components/inputs/input_primary/input_primary";
 import Image from "../../../components/inputs/image_primary/image_primary";
 import TextArea from '../../../components/inputs/text_area/text_area';
@@ -47,9 +46,10 @@ class addDegree extends Component {
   render() {
     return (
       <div>
-        <h3 className="admin-degrees-header">Add Degree</h3>
         <div className="admin-form">
-          <form onSubmit = {this.handleSubmit} >
+          <form onSubmit = {this.handleSubmit}
+          className="app-form" >
+          <h3 className="admin-form-header admin-form-header-fix">Add Degree</h3>
             <Input
               label="Name"
               name="name"
@@ -104,7 +104,9 @@ class addDegree extends Component {
               error={this.props.errors.image3}
               setImage = {(image3) => this.setState({image3})}
             />
-            <ButtonAdmin value ="Add Degree" />
+            <div className="admin-form-button">
+              <ButtonAdmin value ="Add Degree"/>
+            </div>
           </form>
         </div>
       </div>

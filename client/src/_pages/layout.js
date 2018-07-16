@@ -19,18 +19,21 @@ class Layout extends Component {
   render() {
     return (
       <div>
-        <Navbar />
-        <Route exact path="/" component={Home} />
-        <Route exact path="/login" component={Login} />
-        <Route exact path="/register" component={Register} />
-        <Route exact path="/degrees/:id" component={DegreePage} />
-        <Route exact path="/courses/:id" component={CoursePage} />
+        <Route component={Login}/>
+        <div className="layout">
+          <Navbar />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/login" component={Login} />
+          <Route exact path="/register" component={Register} />
+          <Route exact path="/degrees/:id" component={DegreePage} />
+          <Route exact path="/courses/:id" component={CoursePage} />
 
-        <Route exact path="/students" render ={()=>(
-          this.props.user.role !== 'student' ? (<Redirect to="/" />)
-            : (<Students />)
-        )} />
-        <Footer />
+          <Route exact path="/students" render ={()=>(
+            this.props.user.role !== 'student' ? (<Redirect to="/" />)
+              : (<Students />)
+          )} />
+          <Footer />
+        </div>  
       </div>
     )
   }

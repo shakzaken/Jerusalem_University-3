@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './course_card.css';
 import ButtonPrimary from '../../../components/buttons/button_primary/button_primary';
 
 

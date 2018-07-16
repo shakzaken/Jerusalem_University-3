@@ -1,5 +1,4 @@
 import React from 'react';
-import './button_primary.css';
 
 export default (props) => {
   return (

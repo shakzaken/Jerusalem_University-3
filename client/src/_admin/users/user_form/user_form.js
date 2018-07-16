@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import './user_form.css';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {createUser ,clearErrors} from '../../../__actions/users_actions';
@@ -48,9 +47,10 @@ class addUser extends Component {
 
     return (
       <div>
-        <h3 className="admin-users-header">Add User</h3>
         <div className="admin-form">
-          <form onSubmit={this.handleSubmit}>
+          <form onSubmit={this.handleSubmit} className="app-form"  autoComplete="off">
+            <h3 className="admin-form-header admin-form-header-fix">Add User</h3>
+
             <Input
               label="First Name"
               name="firstName"
@@ -101,7 +101,9 @@ class addUser extends Component {
               error={this.props.errors.image}
               setImage = {(image) => this.setState({image})}
             />
-            <ButtonAdmin value="Add User"/>
+            <div className="admin-form-button">
+              <ButtonAdmin value="Add User"/>
+            </div>
           </form>
         </div>
       </div>

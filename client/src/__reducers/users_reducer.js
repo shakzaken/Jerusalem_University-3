@@ -1,5 +1,5 @@
 import {GET_USERS, NEW_USER, USERS_START_LOADING , USERS_CLEAR_ERRORS,
-  USERS_ERRORS, DELETE_USER, GET_INSTRUCTORS, STUDENT_DATA,REGISTER_STUDENT} from '../__actions/types';
+  USERS_ERRORS, GET_INSTRUCTORS, STUDENT_DATA} from '../__actions/types';
 
 const initialState = {
   users: [],

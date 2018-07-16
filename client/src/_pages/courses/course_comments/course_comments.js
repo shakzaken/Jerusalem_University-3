@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import CourseComment from '../course_comment/course_comment';
-import './course_comments.css';
 import ButtonPrimary from '../../../components/buttons/button_primary/button_primary_submit';
 import HeaderSecondary from '../../../components/headers/header_secondary/header_secondary';
 

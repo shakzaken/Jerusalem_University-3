@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import {connect} from 'react-redux';
-import './course_form.css';
+
 
 import Input from "../../../components/inputs/input_primary/input_primary";
 import Select from "../../../components/inputs/select_primary/select_primary";
@@ -77,12 +77,13 @@ class addCourse extends Component {
         
     return (
       <div>
-        <h3 className="admin-courses-header">Add Course</h3>
+        
         <div className="admin-form">
           <form
             onSubmit = {this.handleSubmit}
-            className="courseForm-form"
+            className="app-form"
           >
+          <h3 className="admin-form-header admin-form-header-fix">Add Course</h3>
             
             <Input
               label="Name"
@@ -130,7 +131,9 @@ class addCourse extends Component {
               error={this.props.errors.image}
               setImage = {(image) => this.setState({image})}
             />
-            <ButtonAdmin value="Add Course" />
+            <div className="admin-form-button">
+              <ButtonAdmin value="Add Course" />
+            </div>  
           </form>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import {ADD_COMMENT,DELETE_COMMENT,GET_COMMENTS,
+import {ADD_COMMENT,DELETE_COMMENT,
    GET_ALL_COMMENTS,COMMENTS_ERRORS
 } from './types';
 import {Config} from '../config/config';

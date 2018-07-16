@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import '../input_shared.css';
-import './input_primary.css';
 
 export default class Input extends Component {
   
@@ -12,14 +10,17 @@ export default class Input extends Component {
       }
 
     return (
-      <div>
-        <div className="form-group">
-          <label htmlFor="firstName">{this.props.label}</label>
+      <div className="form-group">
+        <div >
+          <label className="form-label" htmlFor="firstName">{this.props.label}</label>
           <input
+            className ="form-input"
             type={type}
             name = {this.props.name}
             value={this.props.value}
             onChange={this.props.handleChange}
+            placeholder = {this.props.label}
+            autoComplete = "off"
           />
         </div>
         <div className="err-msg">

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Input from '../../../components/inputs/input_primary/input_primary';
 import Image from '../../../components/inputs/image_primary/image_primary';
 import '../users.css';
-import '../../../css/users.css';
+
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {createUser,clearErrors} from '../../../__actions/users_actions';

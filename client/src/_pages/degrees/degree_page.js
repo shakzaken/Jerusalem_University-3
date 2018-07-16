@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import './degree_page.css';
-import axios from 'axios';
-import { Config } from '../../config/config';
 import CourseCard from './course_card/course_card';
 import DegreeHeader from './degree_header/degree_header';
 import ButtonSeconday  from '../../components/buttons/button_secondary/button_secondary';

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../users.css';
 import Input from '../../../components/inputs/input_primary/input_primary';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
@@ -13,31 +12,29 @@ class Login extends Component {
       email:'',
       password:''
     }
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount(){
     this.props.clearErrors();
   }
 
-  handleSubmit(event){
-    event.preventDefault();
+  handleClick(event){
+    
     this.props.clearErrors();
     this.props.loginUser(this.state,
       () => this.props.history.push('/'));
-    
+    this.setState({email:'',password:''});
   }
 
   
 
   render() {
     return (
-      <div className="login-body">
-        <div className="login-card">
-          <div className="login-card-header">
-            <h3>Login</h3>
-          </div>
-          <form className="login-form" onSubmit = {this.handleSubmit}>
+      <div className="login" id="login">
+        <div className="login-card" >
+          <a className="login-card-exit" href="#">&times;</a>  
+          <form className="login-card-form">
             <Input
             value= {this.state.email}
             handleChange = {(event) => this.setState({email: event.target.value})}
@@ -53,11 +50,11 @@ class Login extends Component {
             type = "password"
             error = {this.props.errors.password}
             />
-            <input type="submit" value="Login" className="register-form-button userForm-btn" />
+            <a href="#" 
+            className="register-form-button userForm-btn" 
+            onClick = {this.handleClick}>Login</a>
           </form>
-          <div className="login-card-footer">
-            <p>Jerusalem University</p>
-          </div>
+         
         </div>
       </div>
    

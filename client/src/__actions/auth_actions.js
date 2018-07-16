@@ -1,5 +1,5 @@
-import {GET_USERS,NEW_USER, START_LOADING,
-  AUTH_ERRORS,DELETE_USER,GET_INSTRUCTORS, 
+import {
+  AUTH_ERRORS, 
   AUTH_CLEAR_ERRORS,LOGIN_USER,LOGOUT_USER} from './types';
 import {validateLogin} from '../helpers/validations/usersValidations';
 import {Config} from '../config/config';
@@ -27,7 +27,7 @@ export const loginUser = (data,callback) => dispatch => {
       callback();
     })
     .catch(error =>{
-      console.log(error.response);
+      console.log(error);
       return dispatch({
         type: AUTH_ERRORS,
         payload: error.response.data.errors

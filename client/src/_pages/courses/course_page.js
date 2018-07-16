@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import CourseHeader from './course_header/course_header';
 import CourseContent from './course_content/course_content';
 import CourseComments from './course_comments/course_comments';
-import './course_page.css';
 import { connect } from 'react-redux';
 import { startLoading , getCourseWithData } from '../../__actions/courses_actions';
 import {addComment,deleteComment} from '../../__actions/comments_actions';

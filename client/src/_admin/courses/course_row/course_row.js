@@ -7,13 +7,15 @@ export default props => {
     <tr>
       <td>
         <img
-          className="course-image"
+          className="admin-courses-table-image"
           src={props.loading ? "" :  props.course.image.body}
           alt="course"
         />
       </td>
       <td>
-        <Link to={`/admin/courses/${props.course.id}`}>
+        <Link 
+          to={`/admin/courses/${props.course.id}`}
+          className="admin-courses-table-link">
           {props.course.name}
         </Link>
       </td>

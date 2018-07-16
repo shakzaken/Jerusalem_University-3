@@ -1,6 +1,48 @@
 
-.form-group > input{
-  height:30px;
+
+
+
+.form{
+
+  &-group{
+
+
+  }
+  &-input{
+    display: block;
+    height: 4rem;
+    width:100%;
+    border:none;
+    font-family: inherit;
+    color: inherit;
+    background-color: white;
+    padding: 2rem 1.5rem;
+    border-radius: 3px;
+  
+    
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+        transition: background-color 5000s ease-in-out 0s;
+        color:red;
+    }
+
+    &:focus{
+      outline: none;
+      border-bottom: 2px solid $primary-color;
+      box-shadow: 0 2px 5px rgba(black,0.1);
+    }
+    
+
+    
+  }
+
+  &-label{
+    display: none;
+  }
+
+
 }
 
 

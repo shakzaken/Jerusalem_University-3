@@ -1,8 +1,8 @@
-import {GET_USERS, NEW_USER,  AUTH_CLEAR_ERRORS,LOGIN_USER,
-  AUTH_ERRORS, DELETE_USER, GET_INSTRUCTORS, LOGOUT_USER} from '../__actions/types';
+import {  AUTH_CLEAR_ERRORS,LOGIN_USER,
+  AUTH_ERRORS, LOGOUT_USER} from '../__actions/types';
 
 const initialState = {
-  user: JSON.parse(localStorage.getItem('user')),
+  user: getUser(),
   errors:{},
   token: localStorage.getItem('token')
 }
@@ -35,6 +35,13 @@ export default function(state = initialState, action) {
     default:
       return state;
   }
+}
+
+
+function getUser(){
+  const user = JSON.parse(localStorage.getItem('user'));
+  if(user) return user;
+  else return {};
 }
 
 

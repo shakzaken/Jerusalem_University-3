@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import ButtonPrimary from '../../../components/buttons/button_primary/button_primary';
-import './degree_card.css';
 
 
 export default class degreeCard extends Component {

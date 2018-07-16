@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import {connect} from 'react-redux';
 import {getAllComments,deleteComment} from '../../__actions/comments_actions';
-import './comments.css';
+
 
 class Comments extends Component {
 

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { getCourses,startLoading,deleteCourse } from '../../../__actions/courses_actions';
 import {connect} from 'react-redux';
 import CourseRow from '../course_row/course_row';
-import './courses_table.css';
+
 
 class courses extends Component {
   constructor() {
@@ -37,19 +37,21 @@ class courses extends Component {
     );
 
     return (
-      <div>
-        <h2 className="admin-courses-header">Courses Table</h2>
-
-        <table className="admin-courses-table">
+      <div className="admin-table">
+        <div className="admin-courses-header">
+          <h2 className="admin-form-header admin-form-header-fix">Courses Table</h2>
+        </div>
+        
+        <table>
           <thead>
             <tr>
-              <th className="admin-courses-medium-col">Picture</th>
-              <th className="admin-courses-big-col">Name</th>
-              <th className="admin-courses-big-col">Instructor</th>
-              <th className="admin-courses-medium-col">Field</th>
-              <th className="admin-courses-small-col">Points</th>
-              <th className="admin-courses-small-col">Id</th>
-              <th className="admin-courses-small-col">Delete</th>
+              <th className="admin-table-medium-col">Picture</th>
+              <th className="admin-table-big-col">Name</th>
+              <th className="admin-table-big-col">Instructor</th>
+              <th className="admin-table-medium-col">Field</th>
+              <th className="admin-table-small-col">Points</th>
+              <th className="admin-table-small-col">Id</th>
+              <th className="admin-table-small-col">Delete</th>
             </tr>
           </thead>
           <tbody>

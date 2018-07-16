@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import '../input_shared.css';
-import "./select_primary.css";
+
 
 export default class Select extends Component {
 
@@ -25,11 +24,13 @@ export default class Select extends Component {
     return (
       <div>
         <div className="form-group">
-          <label htmlFor="role">{this.props.label}</label>
-          <select
+          <label 
+          className="select-input-label" 
+          htmlFor="role">{this.props.label}</label>
+          <select 
+            className = "select-input"
             name={this.props.name}
             id={this.props.name}
-            className="userForm"
             onChange={this.handleChange}
             value={this.props.value}
           >

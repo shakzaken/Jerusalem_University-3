@@ -6,14 +6,14 @@ export default props => {
     <tr>
       <td>
         <img
-          className="course-image"
+          className="admin-degrees-table-image"
           src={props.loading ? "" :  props.degree.images.body1}
           alt="degree"
         />
       </td>
       <td>
         <Link
-          className="degree-link"
+          className="admin-degrees-table-link"
           to={`/admin/degrees/${props.degree.id}`}>
           {props.degree.name}
         </Link>

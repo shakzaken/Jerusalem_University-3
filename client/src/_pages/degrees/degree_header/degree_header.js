@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './degree_header.css';
 
 export default class DegreeHeader extends Component {
   render() {

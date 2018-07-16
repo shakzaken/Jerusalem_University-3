@@ -4,14 +4,13 @@
   flex-direction: row;
 
   &-table{
-    width:90%;
-    background: white;
-    padding: 2rem;
-    font-size:1.8rem;
-    line-height: 200%;
-    text-align: start;
-    border: 1.5px solid black;
     
+    
+  }
+
+  &-header{
+    margin: 3rem 0;
+    text-align: center;
   }
 
   &-body{

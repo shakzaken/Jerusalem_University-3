@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './course_comment.css';
 
 export default class CourseComment extends Component {
   render() {

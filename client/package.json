@@ -18,7 +18,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "sass": "node-sass src/ -o src/ -w"
+    "sass": "node-sass src/App.scss src/App.css -w"
   },
   "proxy": "http://localhost/juniversity/public/api",
   "devDependencies": {

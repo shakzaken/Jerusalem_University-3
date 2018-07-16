@@ -1,7 +1,7 @@
 import {GET_COURSES,NEW_COURSE, COURSES_START_LOADING,COURSES_CLEAR_ERRORS,
         DELETE_COURSE,ADD_TOPIC,
-        DELETE_TOPIC,ADD_COMMENT,DELETE_COMMENT,
-         GET_TOPICS, GET_COMMENTS, GET_ALL_COMMENTS,GET_COURSE_WITH_DATA, COURSES_ERRORS
+        DELETE_TOPIC,
+         GET_TOPICS, GET_COMMENTS, GET_COURSE_WITH_DATA, COURSES_ERRORS
 } from './types';
 import {Config} from '../config/config';
 import axios from 'axios';
@@ -42,7 +42,7 @@ export const getCourses = (callback) => dispatch =>{
         type: GET_COURSES,
         payload: result.data.data
       });
-      callback();
+      if(callback) callback();
     })
     .catch(err => console.log(err));
 };

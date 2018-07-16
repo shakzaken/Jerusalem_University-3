@@ -1,5 +1,5 @@
 import React from "react";
-import "./button_admin.css";
+
 
 export default (props) => {
   return (

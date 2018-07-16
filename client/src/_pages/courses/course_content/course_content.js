@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import './course_content.css';
-import HeaderPrimary from '../../../components/headers/header_primary/header_primary';
 import HeaderSecondary from '../../../components/headers/header_secondary/header_secondary';
 
 export default class courseContent extends Component {

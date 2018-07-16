@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 export default class componentName extends Component {
   render() {
     return (
-      <footer className="footer">
+      <footer className="footer" id="footer">
         <div className="footer-grid">
           <ul className="footer-ul-1">
             <li><Link to="/">Home</Link></li>
