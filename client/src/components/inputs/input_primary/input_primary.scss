@@ -5,9 +5,9 @@
 .form{
 
   &-group{
-
-
+   
   }
+
   &-input{
     display: block;
     height: 4rem;
@@ -16,7 +16,7 @@
     font-family: inherit;
     color: inherit;
     background-color: white;
-    padding: 2rem 1.5rem;
+    padding: 0 1.5rem;
     border-radius: 3px;
   
     
@@ -40,6 +40,10 @@
 
   &-label{
     display: none;
+  }
+
+  &-err-msg{
+    font-size:1.4rem;
   }
 
 

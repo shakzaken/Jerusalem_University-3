@@ -16,13 +16,24 @@ export default class courseContent extends Component {
       </li>
     );
     return (
-      <div className="course-content">
-        <div className="course-content-header">
-          <HeaderSecondary value="Course Content" />
+      <div>
+        <div className="course-content">
+          <div className="course-content-header">
+            <HeaderSecondary value="Course Content" />
+          </div>
+            <ul className="course-content-body">
+              {topics}
+            </ul>
         </div>
-        <ul className="course-content-body">
-          {topics}
-        </ul>
+        <div className="course-overview">
+          <div className="course-overview-header">
+            <HeaderSecondary value="Course Overview" />
+          </div>
+          <div className="course-overview-body">
+            {this.props.description}
+          </div>
+          
+        </div>
       </div>
     )
   }

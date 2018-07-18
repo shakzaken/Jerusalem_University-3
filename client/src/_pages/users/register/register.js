@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Input from '../../../components/inputs/input_primary/input_primary';
 import Image from '../../../components/inputs/image_primary/image_primary';
-import '../users.css';
+
 
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
@@ -11,6 +11,28 @@ class Register extends Component {
   constructor(props){
     super(props);
     this.state = {
+      firstName: 'yakir',
+      lastName: 'zak',
+      email: 'yakir@gmail.com',
+      password: '1234',
+      confirmPassword: '1234',
+      role: 'student',
+      image: ''
+    }
+    
+    this.exitClick = this.exitClick.bind(this);
+    this.registerClick = this.registerClick.bind(this);
+  }
+
+  componentDidMount(){
+    this.props.clearErrors();
+  }
+
+  exitClick(event){
+
+    if(event.target.className !=='login' 
+        && event.target.className!== 'login-card-exit') return;
+    this.setState({
       firstName: '',
       lastName: '',
       email: '',
@@ -18,42 +40,58 @@ class Register extends Component {
       confirmPassword: '',
       role: 'student',
       image: ''
-    }
-  }
-
-  componentDidMount(){
+    });
+    window.location.assign('/#');
     this.props.clearErrors();
+
   }
 
-  handleSubmit(event){
+  registerClick(event){
     event.preventDefault();
     this.props.clearErrors();
-    this.props.createUser(this.state,() => this.props.history.push('/login'));
+    this.props.createUser(this.state,() => window.location.assign('/#'));
+    
   }
 
   render() {
     return (
-      <div className="register-body">
-        <div className="register-card">
-          <div className="register-card-header">
-            <h3>Register</h3>
-          </div>
-          <div className="register-form">
-            <form onSubmit = {this.handleSubmit.bind(this)}>
-              <Input
-                label="First Name"
-                value = {this.state.firstName}
-                name = "firstName"
-                handleChange = {(event) => this.setState({firstName: event.target.value})}
-                error = {this.props.errors.firstName}
-               />
-               <Input
-                label="Last Name"
-                value = {this.state.lastName}
-                name = "lastName"
-                handleChange = {(event) => this.setState({lastName: event.target.value})}
-                error = {this.props.errors.lastName}
-               />
+      <div className="login" id="register" onClick={this.exitClick}>
+        <div className="login-card register-card">
+          <div className="">
+          <a className="login-card-exit" href="#">&times;</a>
+            <form className="login-card-form" >
+              <div className="users-form-group u-height-6">
+                <Input
+                  label="First Name"
+                  value = {this.state.firstName}
+                  name = "firstName"
+                  handleChange = {(event) => this.setState({firstName: event.target.value})}
+                  error = {this.props.errors.firstName}
+                />
+                <Input
+                  label="Last Name"
+                  value = {this.state.lastName}
+                  name = "lastName"
+                  handleChange = {(event) => this.setState({lastName: event.target.value})}
+                  error = {this.props.errors.lastName}
+                />
+              </div>
+              <div className="users-form-group u-height-6">
+                <Input
+                  label="password"
+                  value = {this.state.password}
+                  name = "password"
+                  handleChange = {(event) => this.setState({password: event.target.value})}
+                  error = {this.props.errors.password}
+                />
+                <Input
+                  label="Confirm password"
+                  value = {this.state.confirmPassword}
+                  name = "confirmPassword"
+                  handleChange = {(event) => this.setState({confirmPassword: event.target.value})}
+                  error = {this.props.errors.confirmPassword}
+                />
+              </div>
                <Input
                 label="email"
                 value = {this.state.email}
@@ -61,34 +99,27 @@ class Register extends Component {
                 handleChange = {(event) => this.setState({email: event.target.value})}
                 error = {this.props.errors.email}
                />
-               <Input
-                label="password"
-                value = {this.state.password}
-                name = "password"
-                handleChange = {(event) => this.setState({password: event.target.value})}
-                error = {this.props.errors.password}
-               />
-               <Input
-                label="Confirm password"
-                value = {this.state.confirmPassword}
-                name = "confirmPassword"
-                handleChange = {(event) => this.setState({confirmPassword: event.target.value})}
-                error = {this.props.errors.confirmPassword}
-               />
-               <Image
-                label= "Image"
-                value= {this.state.image}
-                name = "image"
-                id = "register-image"
-                error = {this.props.errors.image}
-                setImage = {(image) => this.setState({image})} 
-               />
-                      
-              <input type="submit" value="Register" className="register-form-button userForm-btn" />
+              <div className="register-card-image-container">
+                <Image
+                    label= "Image"
+                    value= {this.state.image}
+                    name = "image"
+                    id = "register-image"
+                    error = {this.props.errors.image}
+                    setImage = {(image) => this.setState({image})} 
+                    color = "primary"
+                  />
+                  <div className="register-card-button-container">
+                    <a href="#" 
+                    className="login-card-button" 
+                    onClick = {this.registerClick}>Register</a>
+                  </div>
+              </div>
+                
+                  
+             
+                
             </form>
-          </div>
-          <div className="register-card-footer">
-            <p>Jerusalem University</p>
           </div>
         </div>
       </div>

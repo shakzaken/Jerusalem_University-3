@@ -18,7 +18,7 @@
     background-color: white;
     padding: 2rem;
     border-radius: 2rem;
-    box-shadow: 0 5px 1rem rgba(black,0.2);
+    box-shadow: 0 2px 5px rgba(black,0.1);
   }
 
 
@@ -36,6 +36,32 @@
     list-style: none;
     display: flex;
   }
+
+}
+
+
+.course-overview{
+
+  padding-left:5%;
+  line-height: 150%;
+  font-size:1.8rem;
+
+  &-header{
+    margin: 5rem 0 5rem 15%;
+    
+  }
+
+  &-body{
+    width: 85%;
+    margin-left:0;
+    background-color: white;
+    padding: 5rem;
+    border-radius: 2rem;
+    box-shadow: 0 2px 5px rgba(black,0.1);
+  }
+
+
+ 
 
 }
 

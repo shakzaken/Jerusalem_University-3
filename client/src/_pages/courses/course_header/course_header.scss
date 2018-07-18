@@ -23,8 +23,10 @@
 
   &-title{
     
-    grid-column: 5/8;
+    grid-column: 4/9;
     grid-row: 2/3;
+    text-align: center;
+    padding: 3rem;
     
 
     h2{
@@ -42,6 +44,9 @@
       transition: all .2s;
       text-transform: uppercase;
       letter-spacing: 2px;
+      @include respond(big-phone){
+        font-size: 2.5rem;
+      }
 
       &:hover{
         transform: translateY(-0.5rem) scale(1.05);
@@ -56,6 +61,11 @@
     grid-column: 2/4;
     transition: all .3s;
     box-shadow: 0 1rem 2rem rgba(black,0.4);
+
+    @include respond(phone){
+      grid-column: 1/4;
+      margin-left:3rem;
+    }
     
     &:hover{
       transform: rotate(5deg) scale(1.05);
@@ -71,7 +81,8 @@
   &-overview{
     
     grid-row: 4/7;
-    grid-column: 6/8;
+    grid-column: 4/9;
+    margin-left:30%;
     
     color: $secondary-color;
     padding:2rem;
@@ -81,6 +92,9 @@
     border-left: none;
     strong{
       font-weight: 400;
+    }
+    @include respond(big-phone){
+      margin-left:20%;
     }
  
   }

@@ -13,6 +13,13 @@ export default class image extends Component {
     this.showImage = this.showImage.bind(this);
   }
 
+  componentDidMount(){
+    if(this.props.color === 'primary'){
+      let icon = document.querySelector('.image-input-icon');
+      icon.style.color = '#12d8fa';
+    }
+  }
+
   handleChange(event){
     this.showImage(event);
   }

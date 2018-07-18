@@ -1,6 +1,7 @@
 
 
 .button-secondary{
+  display: inline-block;
   border: 1.5px solid $secondary-color-dark;
   background: white;
   color: $secondary-color-dark;
@@ -10,15 +11,20 @@
   text-decoration: none;
   border-radius: 10rem;
   font-weight: 500;
+  transition: all .3s;
   
   
-  &:hover,
-  &:focus{
+  &:hover{
     background: $secondary-color-dark;
-    box-shadow: 2px 2px 2px rgba(black,0.15);
+    box-shadow: 0 1rem 2rem rgba(black,0.15);
     color:white;
-    border:none;
+    transform: translateY(-1rem);
+    
+  }
+
+  &:focus{
     outline: none;
+    border : 1px solid $primary-color;
   }
   
 }

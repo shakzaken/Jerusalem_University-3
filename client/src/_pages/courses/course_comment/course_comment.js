@@ -1,6 +1,22 @@
 import React, { Component } from 'react';
 
 export default class CourseComment extends Component {
+
+  deleteIcon(){
+    if(this.props.userId === this.props.comment.user_id){
+      return (
+        <a  
+          className="course-comment-delete-icon"
+          onClick={this.props.handleClick}>
+          &times;
+        </a>
+      );
+    }else{
+      return (<div></div>);
+    }
+  }
+
+
   render() {
     const loading = this.props.loading;
     return (
@@ -16,12 +32,7 @@ export default class CourseComment extends Component {
             {`${this.props.comment.first_name} ${this.props.comment.last_name}`}
           </div>
           <div className="course-comment-icon-container">
-            <a  
-            className="course-comment-delete-icon"
-            onClick={this.props.handleClick}>
-            X
-            </a>
-
+            {this.deleteIcon()}
           </div>
           
         </div>
@@ -32,3 +43,6 @@ export default class CourseComment extends Component {
     )
   }
 }
+
+
+

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Route ,Redirect } from 'react-router-dom';
 import {connect} from 'react-redux';
 import '../App.css';
-import '../css/global.css';
 import Navbar from './includes/navbar/navbar';
 import Footer from './includes/footer/footer';
 import Home from './home/home';
@@ -20,17 +19,16 @@ class Layout extends Component {
     return (
       <div>
         <Route component={Login}/>
+        <Route component={Register}/>
         <div className="layout">
           <Navbar />
           <Route exact path="/" component={Home} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/register" component={Register} />
           <Route exact path="/degrees/:id" component={DegreePage} />
           <Route exact path="/courses/:id" component={CoursePage} />
 
           <Route exact path="/students" render ={()=>(
-            this.props.user.role !== 'student' ? (<Redirect to="/" />)
-              : (<Students />)
+            this.props.user.is_registered ? 
+              (<Students />) : (<Redirect to="/" />)
           )} />
           <Footer />
         </div>  
@@ -43,7 +41,8 @@ class Layout extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    user: state.auth.user
+    user: state.auth.user,
+    isRegistered: state.auth.isRegistered
   };
 }
 

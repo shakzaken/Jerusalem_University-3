@@ -13,6 +13,7 @@
   
 
   &-group{
+    position: relative;
     display: grid;
     grid-template-columns: 1fr 3fr;
     margin-top:2rem;
@@ -34,8 +35,8 @@
     
     &::after {
       position: absolute;
-      left:1.2rem;
-      top:1.2rem;
+      left:3rem;
+      top:3rem;
       content: "";
       width: 3rem;
       height: 3rem;

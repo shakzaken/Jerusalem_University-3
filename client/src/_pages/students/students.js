@@ -3,6 +3,8 @@ import React, { Component } from "react";
 import {connect} from 'react-redux';
 import {startLoading,getStudentData} from '../../__actions/users_actions';
 import CourseRow from './course_row/course_row';
+import Header from '../../components/headers/header_primary/header_primary';
+
 
 class Students extends Component {
   constructor(props){
@@ -28,28 +30,31 @@ class Students extends Component {
   
 
   render() {
-    const loading = this.props.loading;
+    
+    const loading = this.props.user.image ? false : true;
     const user = this.props.user;
+    
     const degree = this.props.degree;
     const rows = this.props.courses.map(course => 
       <CourseRow key= {course.id} course = {course}/>
     )
     return (
       <div>
-        <section class="section-i">
-          <div class="i-container">
-            <div class="i-grid">
-              <div class="i-image-container">
+        <section class="students-header">
+          <div class="students-header-container">
+            <div class="students-header-grid">
+              <div class="students-header-image-container">
                 <img
-                  class="i-image"
+                  class="students-header-image"
                   src={ loading ? '': user.image.body}
                   alt=""
                 />
               </div>
-              <div class="i-student-text">
-                <strong>Name: </strong>
-                 &nbsp;{ loading ? '': user.first_name} { loading ? '': user.last_name}
-                 <br />
+              <div class="students-header-text">
+                
+                 <h2 className="students-header-text-main">
+                  { loading ? '': user.first_name} { loading ? '': user.last_name}
+                 </h2><br/>
                 <strong>Degree: </strong>&nbsp; {loading ? '': degree.full_name }<br />
                 <strong>Email: </strong> &nbsp; {loading ? '': user.email}
               </div>
@@ -57,12 +62,14 @@ class Students extends Component {
           </div>
         </section>
 
-        <section class="section-h">
-          <div class="h-container">
-            <h3 class="h-header">My Courses</h3>
-            <br /> Register Now to one of our degrees, and get access to our
-            courses. 
-            <ul class="h-list">
+        <section class="students-courses">
+          <div class="students-courses-container">
+            
+            <div class="students-courses-header">
+              <Header value="My Courses"/>
+            </div>
+            <br /> 
+            <ul class="students-courses-list">
               {rows}
             </ul>
           </div>

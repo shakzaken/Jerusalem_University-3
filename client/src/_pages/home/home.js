@@ -15,6 +15,8 @@ class Home extends Component {
   }
 
   render() {
+
+    
     const degreesCards = this.props.degrees.map((degree) =>
       <DegreeCard key={degree.id} degree={degree} />
     );

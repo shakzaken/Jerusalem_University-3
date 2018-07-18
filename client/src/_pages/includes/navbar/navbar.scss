@@ -5,45 +5,65 @@
   color:white;
   height:35%;
   display: flex;
+  @include respond(phone){
+       display: block;
+       height:40%;
+  }
+
+    &-ul{
+      flex:1;
+      display: flex;
+      font-weight: 600; 
+      @include respond(phone){
+       
+      }
+
+      &-right{
+        justify-content: flex-end;
+        margin-right:5%;
+        @include respond(phone){
+          margin-right:0%;
+          justify-content: center;
+          margin-top:5px;
+        }
+      }
+
+      &-left{
+        justify-content: center;
+      }
+    }
+
+    &-link{
+      text-decoration: none;
+      color: white;
+      list-style: none;
+
+      &-big{
+        width:11rem;
+      }
+
+      &-email{
+        margin-right: 2rem;
+      }
+
+      &-medium {
+        width:7rem;
+      }
+    }
+
+    &-logo{
+      & h1{
+        text-align: center;
+        color:white;
+        @include respond(phone){
+          
+          padding:2rem;
+        }
+      }
+    }
   
 }
 
-.navbar ul{
-  flex:2;
-  display: flex;
-  font-weight: 600;
-  
-}
-
-.big-li{
-  width:11rem;
-  list-style: none;
-}
-
-.navbar-email-li{
-  
-  text-decoration: none;
-  list-style: none;
-  margin-right: 2rem;
-}
-.medium-li {
-  width:7rem;
-  
-  list-style: none;
-  
-}
-
-
-
-
-.navbar a{
-  text-decoration: none;
-  color: white;
-}
-
-.nav-right-ul{
-  justify-content: center;
-}
 
 .main-header{
   background: linear-gradient(
@@ -52,21 +72,18 @@
       $primary-color,
       $secondary-color
     );
-  height:75px;
+  height:7.5rem;
   border-bottom: 2px solid #fff;
+  @include respond(phone){
+    display: block;
+    height:10rem;
+}
 }
 
 
-.nav-logo  h1{
-  text-align: center;
-  color:white;
- 
-}
 
-.space-div{
-  flex:1;
-}
 
+/*
 
 @media(max-width:600px){
     
@@ -91,3 +108,5 @@
       border-bottom: 2px solid #fff;
   }
 }
+
+*/

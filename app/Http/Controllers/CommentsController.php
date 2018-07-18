@@ -7,6 +7,7 @@ use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\DB;
 use App\Comment;
 use App\Course;
+use App\User;
 
 
 class CommentsController extends Controller
@@ -15,7 +16,7 @@ class CommentsController extends Controller
     try{
       $course = Course::find($request->courseId);
       if(!$course) return response(['general' => 'Course is not found'],400);
-      $user = Course::find($request->userId);
+      $user = User::find($request->userId);
       if(!$user) return response(['general' => 'User is not found'],400);
 
       $comment = new Comment;

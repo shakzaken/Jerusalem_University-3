@@ -23,7 +23,7 @@ export default class Input extends Component {
             autoComplete = "off"
           />
         </div>
-        <div className="err-msg">
+        <div className="form-err-msg err-msg">
           {this.props.error ? this.props.error : ""}
         </div>
       </div>

@@ -9,29 +9,49 @@ class Login extends Component {
   constructor(props){
     super(props);
     this.state = {
-      email:'',
-      password:''
+      email:'yakir@gmail.com',
+      password:'1234'
     }
-    this.handleClick = this.handleClick.bind(this);
+    this.exitClick = this.exitClick.bind(this);
+    this.loginClick = this.loginClick.bind(this);
   }
 
   componentDidMount(){
     this.props.clearErrors();
   }
 
-  handleClick(event){
-    
+  exitClick(event){
+
+    if(event.target.className !=='login' 
+        && event.target.className!== 'login-card-exit') return;
+    this.setState({
+      email: '',
+      password: ''
+    });
+    window.location.assign('/#');
     this.props.clearErrors();
-    this.props.loginUser(this.state,
-      () => this.props.history.push('/'));
-    this.setState({email:'',password:''});
+
   }
+
+  loginClick(event){
+    event.preventDefault();
+    this.props.clearErrors();
+    this.props.loginUser(this.state,() =>{
+      this.setState({
+        email: '',
+        password: ''
+      });
+      window.location.assign('/#');
+    });
+  }
+
+ 
 
   
 
   render() {
     return (
-      <div className="login" id="login">
+      <div className="login" id="login" onClick={this.exitClick}>
         <div className="login-card" >
           <a className="login-card-exit" href="#">&times;</a>  
           <form className="login-card-form">
@@ -50,9 +70,12 @@ class Login extends Component {
             type = "password"
             error = {this.props.errors.password}
             />
-            <a href="#" 
-            className="register-form-button userForm-btn" 
-            onClick = {this.handleClick}>Login</a>
+            <div className="login-card-button-container">
+              <a href="#" 
+              className="login-card-button" 
+              onClick = {this.loginClick}>Login</a>
+            </div>
+            
           </form>
          
         </div>

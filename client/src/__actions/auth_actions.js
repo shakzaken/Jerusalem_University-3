@@ -1,6 +1,6 @@
 import {
   AUTH_ERRORS, 
-  AUTH_CLEAR_ERRORS,LOGIN_USER,LOGOUT_USER} from './types';
+  AUTH_CLEAR_ERRORS,LOGIN_USER,LOGOUT_USER,AUTH_GET_USER, REGISTER_STUDENT} from './types';
 import {validateLogin} from '../helpers/validations/usersValidations';
 import {Config} from '../config/config';
 import axios from 'axios';
@@ -49,3 +49,22 @@ export const clearErrors = () => {
     payload: {}
   }
 }
+
+export const getUser = (id,callback) => dispatch => {
+  axios.get(`${serverURL}/users/${id}`)
+    .then(res =>{
+      localStorage.setItem('user',JSON.stringify(res.data));
+      dispatch({
+        type: AUTH_GET_USER,
+        payload: res.data
+      });
+      if(callback) callback();
+    })
+    .catch(error =>{
+      console.log(error);
+      return dispatch({
+        type: AUTH_ERRORS,
+        payload: {error: 'Error getting user'}
+      });
+    });
+  }

@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import {connect} from 'react-redux';
 import {startLoading,getTopics,deleteTopic,addTopic} from '../../../__actions/courses_actions';
+import AdminButton from '../../../components/buttons/button_admin/button_admin';
+import Input from '../../../components/inputs/input_primary/input_primary';
 
 class CourseInfo extends Component {
 
@@ -31,6 +33,7 @@ class CourseInfo extends Component {
   handleSubmit(event){
     event.preventDefault();
     this.props.addTopic(this.state,() => this.props.getTopics(this.state.courseId));
+    this.setState({name:''});
   }
 
   handleChange(event){
@@ -55,35 +58,36 @@ class CourseInfo extends Component {
     );
 
     return (
-      <div>
-        <a href="#" className="admin-form-link">
-          Add Topic
-        </a>
-        <h1 className="admin-degrees-header">
-          {this.props.loading ? '': this.props.course.name}
-        </h1>
-        <table className="admin-degrees-table">
-          <thead>
-            <tr>
-              <th className="admin-courses-small-col">Id</th>
-              <th className="admin-courses-big-col">Name</th>
-              <th className="admin-courses-small-col">Delete</th>
-            </tr>
-          </thead>
-          <tbody>
-            {rows}
-          </tbody>
-        </table>
-
-        <h3 className="admin-degrees-header">course name</h3>
+      <div className = "admin-degree-info">
+        <div className ="admin-table">
+          <h1 className="admin-form-header admin-form-header-fix">
+            {this.props.loading ? '': this.props.course.name}
+          </h1>
+          <table className="admin-degrees-table">
+            <thead>
+              <tr>
+                <th className="admin-table-small-col">Id</th>
+                <th className="admin-table-big-col">Name</th>
+                <th className="admin-table-small-col">Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              {rows}
+            </tbody>
+          </table>
+        </div>
+        
         <div className="admin-form">
-          <form onSubmit ={this.handleSubmit}>
-            <div className="form-group">
-              <label htmlFor="selectCourse">topic</label>
-              <input type="text" className="" name="topic" value={this.state.name}
-              onChange = { this.handleChange} />
+          <form onSubmit ={this.handleSubmit} className="app-form">
+            <h3 className="admin-degree-info-header">Add Topic</h3>
+            <Input 
+             label="Topic"
+             name="topic"
+             value={this.state.name} 
+             handleChange ={this.handleChange}/>
+            <div class="admin-degree-info-button">
+              <AdminButton value="Add Topic" />
             </div>
-            <input type="submit" value="Add Topic" className="admin-form-button" />
           </form>
         </div>
       </div>

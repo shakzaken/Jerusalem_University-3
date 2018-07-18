@@ -1,5 +1,6 @@
 import {  AUTH_CLEAR_ERRORS,LOGIN_USER,
-  AUTH_ERRORS, LOGOUT_USER} from '../__actions/types';
+  AUTH_ERRORS, LOGOUT_USER,AUTH_GET_USER} from '../__actions/types';
+
 
 const initialState = {
   user: getUser(),
@@ -32,6 +33,11 @@ export default function(state = initialState, action) {
         ...state,
         errors: {}
       }
+    case AUTH_GET_USER:
+      return {
+        ...state,
+        user: action.payload
+      }
     default:
       return state;
   }
@@ -39,9 +45,17 @@ export default function(state = initialState, action) {
 
 
 function getUser(){
+  
   const user = JSON.parse(localStorage.getItem('user'));
-  if(user) return user;
-  else return {};
+  if(user) { 
+    return user;
+  }else{
+    return {};
+  }
+  
+  
 }
+
+
 
 

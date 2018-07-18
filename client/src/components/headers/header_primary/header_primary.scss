@@ -15,6 +15,10 @@
     $secondary-color-dark,
     $primary-color-dark
   );
+
+  @include respond(phone) {
+    font-size: 3rem;
+  }
   
 
   &:hover{

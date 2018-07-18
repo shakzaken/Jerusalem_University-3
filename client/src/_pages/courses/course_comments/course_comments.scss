@@ -3,17 +3,52 @@
 .course-comments{
 
   &-header{
-    font-size:28px;
+    
     text-decoration-line: underline;
-    margin-bottom: 10px;
+    margin-bottom: 1rem;
+    margin-left:5rem;
   }
 
-  &-form-body{
-    width:90%;
-    height:60px;
-    font-size: 16px;
-    margin: 10px 0;
+  &-form{
+    
+    
+    font-size: 1.8rem;
+    margin: 7rem 0;
+    
+
+    &-header{
+      margin: 0 0 1rem 2rem;
+    }
+
+    &-body{
+      width: 90%;
+      height:8rem;
+      border: 1px solid rgb(207, 207, 207);
+      font-size:1.8rem;
+      border-bottom: none;
+      margin-bottom: -4px;
+      padding : .5rem;
+      
+      &:focus{
+        outline: none;
+        border: 2px solid $primary-color-dark;
+        border-bottom: none;
+      }
+    }
+
+    &-button{
+      display: block;
+      color:white;
+      background-color: $primary-color-dark;
+      border:none;
+      width:90%;
+      font-size:2rem;
+      
+      
+    }
   }
+
+  
 
   &-container{
     height: auto;

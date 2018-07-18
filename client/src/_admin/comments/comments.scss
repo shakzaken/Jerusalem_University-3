@@ -1,6 +1,6 @@
 
 .admin-comments{
-
+  /*
   &-table{
     width:90%;
     background: white;
@@ -11,17 +11,40 @@
     border: 1.5px solid black;
     border-collapse: collapse;
   }
+  */
   &-row{
-    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: row;
+    padding: 2rem;
     border-bottom:1px solid rgb(212, 212, 212);
     border-top: 1px solid rgb(211, 208, 208);
+    font-size: 1.6rem;
+
+    &-details{
+      flex: 2;
+      padding: 2rem;
+      line-height: 140%;
+    }
+    &-body{
+      flex:4;
+      letter-spacing: 100%;
+      padding: 2rem;
+      
+      line-height: 140%;
+    }
+    &-delete{
+      flex:1;
+      padding: 2rem;
+      color: rgb(255, 123, 0);
+      span{
+        cursor: pointer;
+      }
+      
+    }
+
   }
 
-  &-body{
-    letter-spacing: 100%;
-    font-size: 1.6rem;
-    line-height: 140%;
-  }
+ 
 }
 
 

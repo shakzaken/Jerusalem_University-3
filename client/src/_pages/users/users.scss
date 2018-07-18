@@ -1,10 +1,11 @@
 @import './login/login.scss';
 
-.register-file-input{
-  background: rgb(125, 214, 255);
-}
-.register-file-input:hover{
-  background: rgb(95, 161, 192);
+
+.users-form-group{
+  display: flex;
+  justify-content: center;
+  height: 6rem;
+  width: 70%;
 }
 
 
@@ -16,65 +17,35 @@
 
 
 .register-card{
-  width:40%;
-  margin:0 auto;
-  border:1px solid rgb(189, 189, 189);
+  position: relative;
+  padding: 0;
+  margin:0;
+  width: 70%;
+
+  &-button-container{
+    
+    position: absolute;
+    top:4rem;
+    right:-7rem;
+  }
   
-  background-image: 
-  linear-gradient(105deg,rgba(white,0.9),rgba(white,0.9)) 
-  url('/img/main/bg1.jpeg');
+  &-image-container{
+    position: relative;
+    width:40%;
+  }
  
 }
 
-.register-form{
-  padding:20px;
-}
-
-.register-card-header{
-  background: linear-gradient(to left,#36D1DC,#5B86E5);
-  height:100px;
-}
-.register-card-header h3{
-  text-align: center;
-  padding:25px;
-  color:white;
-  font-size:40px;
-  font-weight: 300;
-}
-
-.register-card-footer{
-  background: linear-gradient(to left,#36D1DC,#5B86E5);
-  height:80px;
-}
-
-.register-card-footer p{
-  text-align: center;
-  padding:28px;
-  color:white;
-  font-size:18px;
-  
-}
 
 
-.register-form-button{
-  
-  border: 1.5px solid rgb(125, 214, 255);
-  background: white;
-  color: rgb(125, 214, 255);
-  width:120px;
-  height:50px;
-  font-size:18px;
-  margin-left:60%;
-  margin-top:5%;
-  cursor: pointer;
-}
-.register-form-button:hover{
-  
-  background: rgb(125, 214, 255);
-  color: white;
-}
 
-/* ------------------ Login ----------------------*/
+
+
+
+
+
+
+
 
 
 

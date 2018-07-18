@@ -1,0 +1,16 @@
+
+
+@mixin respond($var){
+  @if $var == phone {
+    @media (max-width: 600px) { @content };
+  }
+  @if $var == big-phone {
+    @media (max-width: 900px) { @content };
+  }
+  @if $var == tab{
+    @media (max-width: 1200px) { @content };
+  }
+  @if $var == big-pc{
+    @media (min-width: 1800px) { @content };
+  }
+}

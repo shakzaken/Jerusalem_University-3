@@ -6,6 +6,7 @@ import HeaderPrimary from '../../components/headers/header_primary/header_primar
 import {connect} from 'react-redux';
 import {getDegreeWithCourses,startLoading} from '../../__actions/degrees_actions';
 import {registerStudent} from '../../__actions/users_actions';
+import {getUser} from '../../__actions/auth_actions';
 
 
 class DegreePage extends Component {
@@ -35,13 +36,17 @@ class DegreePage extends Component {
       userId : this.props.user.id,
       degreeId : this.props.match.params.id
     };
-    this.props.registerStudent(data,
-      () => this.props.history.push(`/students`));
+    this.props.registerStudent(data,() => {
+      this.props.getUser(this.props.user.id,() =>{
+        this.props.history.push(`/students`);
+      });
+    });
+       
   }
 
   render() {
 
-
+    const loading = this.props.courses.length === 0;
     const coursesCards = this.props.courses.map((course) =>
       <CourseCard key={course.id} course={course} />
     );
@@ -55,7 +60,7 @@ class DegreePage extends Component {
                   handleClick={this.registerStudent.bind(this)} />
               </div>
           </div>
-          <DegreeHeader degree={this.props.degree} loading={this.props.loading} />
+          <DegreeHeader degree={this.props.degree} loading={loading} />
         </section>
 
 
@@ -95,4 +100,4 @@ const mapStateToProps = (state) => {
 
 
 export default connect(mapStateToProps,
-  {startLoading,getDegreeWithCourses,registerStudent})(DegreePage);
+  {startLoading,getDegreeWithCourses,registerStudent,getUser})(DegreePage);

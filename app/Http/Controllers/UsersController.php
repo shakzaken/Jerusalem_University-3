@@ -144,9 +144,19 @@ class UsersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function get($id)
     {
-        //
+      try{
+        $user = User::find($id);
+        if(!$user) {
+          return response('User not found',400);
+        }
+        return response($user);
+
+      }catch(QueryException $err){
+        return response($err->getMessage(),500);
+      }
+        
     }
 
     /**

@@ -16,34 +16,26 @@ class Comments extends Component {
 
   render() {
     const comments = this.props.comments.map(comment => 
-      <tr className="admin-comments-row">
-        <td />
-        <td>
+      <div className="admin-comments-row">
+        <div className="admin-comments-row-details">
           <strong>id: </strong> {comment.comment_id} <br />
           <strong>Name: </strong>{comment.first_name} {comment.last_name}<br />
           <strong>Course: </strong>{comment.name}
-        </td>
-        <td class="admin-comments-body">{comment.comment_body}</td>
-        <td onClick={() => this.deleteComment(comment.comment_id)}>Delete</td>
-      </tr>
+        </div>
+        <div className="admin-comments-row-body">
+          {comment.comment_body}
+        </div>
+        <div className="admin-comments-row-delete"
+          onClick={() => this.deleteComment(comment.comment_id)}>
+        <span>Delete</span>
+        </div>  
+      </div>
     )
     
     return (
-      <div>
-        <h2 className="admin-courses-header">Comments Table</h2>
-        <table className="admin-comments-table">
-          <thead>
-            <tr>
-              <th className="admin-courses-tiny-col" />
-              <th className="admin-courses-medium-col">Details</th>
-              <th className="admin-courses-big-col">Comment</th>
-              <th className="admin-courses-tiny-col" />
-            </tr>
-          </thead>
-          <tbody>
-            {comments}
-          </tbody>
-        </table>
+      <div className="admin-table">
+        <h2 className="admin-form-header admin-form-header-fix">Comments Table</h2>
+          {comments}
       </div>
     );
   }

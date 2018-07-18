@@ -21,7 +21,7 @@ class CoursePage extends Component {
     const id = this.props.match.params.id;
     this.props.startLoading();
     this.props.getCourseWithData(id);
-
+    
   }
 
   handleSubmit(event,value){
@@ -48,18 +48,22 @@ class CoursePage extends Component {
 
 
   render() {
+    const loading = this.props.comments.length === 0;
+    
     return (
       <div>
         <CourseHeader course={this.props.course}
-          loading={this.props.loading} />
+          loading={loading} />
         <section className="course-body">
           <div className="course-body-grid">
-            <CourseContent topics={this.props.topics} loading={this.props.loading} />
+            <CourseContent topics={this.props.topics} loading={loading}
+             description = {this.props.course.description} />
             <CourseComments 
+            userId = {this.props.user.id}
             handleSubmit={this.handleSubmit.bind(this)} 
             handleClick ={this.handleClick.bind(this)}
             comments={this.props.comments} 
-            loading={this.props.loading} />
+            loading={loading} />
           </div>
         </section>
       </div>

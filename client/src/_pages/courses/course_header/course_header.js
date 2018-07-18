@@ -23,8 +23,7 @@ export default class CourseHeader extends Component {
               <strong>Name: </strong>{this.props.course.name} <br />
               <strong>Instructor: </strong>{this.props.course.instructor} <br />
               <strong>Points: </strong>{this.props.course.points}<br />
-              <strong>Field: </strong>{this.props.course.field}<br />
-              <strong>Description: </strong>{/*this.props.course.description */}
+              <strong>Field: </strong>{this.props.course.field}
             </div>
           </div>
         </section>

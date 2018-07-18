@@ -8,6 +8,9 @@ import {
   deleteCourseFromDegree
 } from "../../../__actions/degrees_actions";
 import {getCourses} from '../../../__actions/courses_actions';
+import Select from '../../../components/inputs/select_primary/select_primary';
+import AdminButton from '../../../components/buttons/button_admin/button_admin';
+
 
 
 class DegreeInfo extends Component {
@@ -56,13 +59,16 @@ class DegreeInfo extends Component {
       </tr>
     ));
     
-    const options = this.props.allCourses.map(course => (
-      <option 
-      key={course.id}
-      value={course.id}>
-          {course.name}
-      </option>
-    ));
+   
+
+    const options = this.props.allCourses.map(course => {
+      return {
+        key: course.name,
+        value: course.id  
+      };
+    });
+ 
+    
 
     return (
       <div className="admin-degree-info">
@@ -87,25 +93,21 @@ class DegreeInfo extends Component {
         
 
         
-        <div className="admin-degree-info-add">
-        <a href="#" className="admin-form-link">
-            Add Course
-          </a>
-          <form onSubmit ={this.handleSubmit}>
-            <div className="form-group">
-              <label htmlFor="selectCourse">Course</label>
-              <select className="form-control"
-                 id="selectCourse" 
-                 onChange = {(event) => this.setState({courseId: event.target.value})}
-                 value = {this.state.courseId} >
-                {options}
-              </select>
+        <div className="admin-degree-info-add admin-form">
+          
+          <form onSubmit ={this.handleSubmit} className="app-form">
+            <h2 className="admin-degree-info-header">Add course </h2> 
+            <Select 
+              id="selectCourse" 
+              handleChange = {(event) => this.setState({courseId: event.target.value})}
+              value = {this.state.courseId} 
+              label = "Course"
+              values= {options} /> 
+           
+            <div class="admin-degree-info-button">
+              <AdminButton value ="Add Course"/>
             </div>
-            <input 
-              type="submit"
-              value="Add Coursewqe"
-              className="admin-form-button" 
-              />
+             
           </form>
         </div>
       </div>

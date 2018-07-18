@@ -3,7 +3,7 @@
 
 
 
-.login{
+.login,{
   position: fixed;
   height: 100vh;
   z-index: 100;
@@ -32,6 +32,7 @@
     left:50%;
     width:50%; 
     height:80%;
+    overflow: hidden;
     
     padding: 3rem 5rem;
     margin:0 auto; 
@@ -40,7 +41,7 @@
     linear-gradient(110deg,
       rgba(white,0.9) 0%,
       rgba(white,0.9) 50%,
-      transparent 50%),
+      rgba($secondary-color,0.2) 50%),
     url('/img/main/pic8.jpeg');
     background-size:cover;
     
@@ -55,6 +56,7 @@
     &-form{
       margin-top:5rem;
       width: 70%;
+      position: relative;
     }
   
     &-header{
@@ -96,6 +98,29 @@
         color: $primary-color;
       }
     }
+
+    &-button{
+      display: inline-block;
+      text-decoration: none;
+      padding: 1rem 1.5rem;
+      border-radius: 10rem;
+      border: none;
+      background: $primary-color;
+      color: white;
+      transition: all .3s;
+
+      &-container{
+        margin: 5rem 0  0 30%;
+      }
+      
+
+      &:hover{
+        transform: scale(1.15);
+        
+      }
+    }
+
+
   
   }
 

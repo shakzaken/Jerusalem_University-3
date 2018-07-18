@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./admin.css";
 import { Route,Switch } from "react-router-dom";
 import Navbar from "./includes/navbar/navbar_admin";
 import Sidebar from "./includes/sidebar/sidebar_admin";

@@ -4,6 +4,8 @@ export const LOGIN_USER = 'LOGIN_USER';
 export const LOGOUT_USER ='LOGOUT_USER';
 export const AUTH_ERRORS = 'AUTH_ERRORS';
 export const AUTH_CLEAR_ERRORS = 'AUTH_CLEAR_ERRORS';
+export const AUTH_REGISTER_STUDENT = 'AUTH_REGISTER_STUDENT';
+export const AUTH_GET_USER = 'AUTH_GET_USER';
  
 
 
