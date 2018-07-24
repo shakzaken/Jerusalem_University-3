@@ -1,7 +1,7 @@
 .admin-container{
   background: rgb(221, 221, 221);
   
-  padding: 50px 0;
+  padding: 5rem 0;
   border-bottom: 2px solid rgb(122, 122, 122);
 }
 
@@ -12,8 +12,15 @@
   margin:0 auto;
   display: grid;
   grid-template-columns: repeat(1fr,4);
-  grid-gap: 20px;
-  grid-auto-rows: 150px;
+  grid-gap: 2rem;
+  grid-auto-rows: 15rem;
+
+  @include respond(big-phone){
+    width:90%;
+  }
+  @include respond(phone){
+    grid-auto-rows: 7rem;
+  }
   
 }
 
@@ -23,15 +30,18 @@
 .admin-header-picture{
 
   grid-row:1/2;
-  font-size: 25px;
+  font-size: 2.5rem;
   color:white;
   text-align: center;
-  padding-top:20px;
+  padding-top: 2rem;
   border-radius: 50%;
   transition: all .3s;
- 
   cursor: pointer;
   text-decoration: none;
+  @include respond(phone){
+    font-size: 1.3rem;
+    padding-top: 1rem;
+  }
 
   &-one{
     grid-column: 1/2;
@@ -81,5 +91,8 @@
 
 
 .admin-header-icon{
-  font-size: 60px;
+  font-size: 6rem;
+  @include respond(phone){
+    font-size: 3rem;
+  }
 }

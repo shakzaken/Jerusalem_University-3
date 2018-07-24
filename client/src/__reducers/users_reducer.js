@@ -1,4 +1,4 @@
-import {GET_USERS, NEW_USER, USERS_START_LOADING , USERS_CLEAR_ERRORS,
+import {GET_USERS, NEW_USER,  CLEAR_ERRORS,
   USERS_ERRORS, GET_INSTRUCTORS, STUDENT_DATA} from '../__actions/types';
 
 const initialState = {
@@ -8,8 +8,7 @@ const initialState = {
   courses : [],
   form:{},
   errors:{},
-  instructors: [],
-  loading: true
+  instructors: []
 }
 
 export default function(state = initialState, action) {
@@ -18,7 +17,7 @@ export default function(state = initialState, action) {
       return {
         ...state,
         users: action.payload,
-        loading: false,
+        errors: {}
       };
     case GET_INSTRUCTORS:
       return {
@@ -35,20 +34,16 @@ export default function(state = initialState, action) {
         ...state,
         errors: action.payload
       }
-    case USERS_CLEAR_ERRORS:
+    case CLEAR_ERRORS:
       return {
         ...state,
         errors: {}
       }
-    case USERS_START_LOADING:
-      return {
-        ...state,
-        loading: true
-      }
+    
     case STUDENT_DATA:
       return {
         ...state,
-        loading: false,
+        errors: {},
         user: action.payload.user,
         degree: action.payload.degree,
         courses: action.payload.courses

@@ -114,6 +114,13 @@ class UsersController extends Controller
     {
   
       try{
+        $tempUser = User::where('email',$request->email)->get();
+        if(count($tempUser) > 0 ){
+          return response([
+            'email' => 'Email is already Exists'
+          ],400);
+        }
+
         $user = new User;
         $user->first_name = $request->firstName;
         $user->last_name = $request->lastName;

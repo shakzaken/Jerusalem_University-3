@@ -24,7 +24,7 @@ export default class panel extends Component {
             <div className="admin-container">
               <Header />
             </div>
-            <div className="admin-main-block">
+            <div className="admin-main-block" id="admin-main-block">
               <Switch>
                 <Route exact path="/admin/users/add" component={UserForm} />
                 <Route exact path="/admin/users" component={UsersTable} />

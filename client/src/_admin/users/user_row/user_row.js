@@ -10,7 +10,7 @@ export default class user_row extends Component {
           <td>
             <img
               className="user-image"
-              src={this.props.loading ? "" : this.props.user.image.body}
+              src={this.props.user.image.body}
               alt="user"
             />
           </td>
@@ -18,9 +18,9 @@ export default class user_row extends Component {
           <td>
             {this.props.user.first_name} {this.props.user.last_name}
           </td>
-          <td>{this.props.user.email}</td>
-          <td>{this.props.user.role} </td>
-          <td> {this.props.user.id} </td>
+          <td className ="hide-on-phone">{this.props.user.email}</td>
+          <td className ="">{this.props.user.role} </td>
+          <td className ="hide-on-phone"> {this.props.user.id} </td>
 
           <td>
             <a

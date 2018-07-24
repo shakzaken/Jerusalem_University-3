@@ -22,8 +22,8 @@ class Login extends Component {
 
   exitClick(event){
 
-    if(event.target.className !=='login' 
-        && event.target.className!== 'login-card-exit') return;
+    if(event.target.className !=='users' 
+        && event.target.className!== 'users-card-exit') return;
     this.setState({
       email: '',
       password: ''
@@ -51,10 +51,10 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="login" id="login" onClick={this.exitClick}>
-        <div className="login-card" >
-          <a className="login-card-exit" href="#">&times;</a>  
-          <form className="login-card-form">
+      <div className="users" id="login" onClick={this.exitClick}>
+        <div className="users-card" >
+          <a className="users-card-exit" href="#">&times;</a>  
+          <form className="users-card-form">
             <Input
             value= {this.state.email}
             handleChange = {(event) => this.setState({email: event.target.value})}
@@ -70,9 +70,9 @@ class Login extends Component {
             type = "password"
             error = {this.props.errors.password}
             />
-            <div className="login-card-button-container">
+            <div className="users-card-button-container">
               <a href="#" 
-              className="login-card-button" 
+              className="users-card-button" 
               onClick = {this.loginClick}>Login</a>
             </div>
             

@@ -34,6 +34,16 @@ class addUser extends Component {
   
   handleSubmit(event) {
     event.preventDefault();
+    if(!this.props.isAdmin){
+      const errMsg = document.querySelector('.admin-error-message');
+      errMsg.style.display = "inline-block";
+      setTimeout(()=>{
+        errMsg.style.display = "none";
+      },3000);
+      window.location.assign("#admin-main-block");
+      return;
+    }
+    
     this.props.clearErrors();
     this.props.createUser(this.state,() => this.props.history.push('/admin/users'));
   }
@@ -50,6 +60,7 @@ class addUser extends Component {
         <div className="admin-form">
           <form onSubmit={this.handleSubmit} className="app-form"  autoComplete="off">
             <h3 className="admin-form-header admin-form-header-fix">Add User</h3>
+            <div className="admin-error-message">You are not Allowed to perform this action.</div>
 
             <Input
               label="First Name"
@@ -118,7 +129,8 @@ addUser.propTypes = {
 
 function mapStateTopProps(state){
   return {
-    errors: state.users.errors
+    errors: state.users.errors,
+    isAdmin: state.auth.isAdmin
   };
 }
 

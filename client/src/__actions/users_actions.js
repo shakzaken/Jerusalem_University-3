@@ -1,6 +1,6 @@
-import {GET_USERS,NEW_USER, USERS_START_LOADING,
+import {GET_USERS,NEW_USER, 
   USERS_ERRORS,DELETE_USER,GET_INSTRUCTORS, 
-  USERS_CLEAR_ERRORS,STUDENT_DATA
+  CLEAR_ERRORS,STUDENT_DATA
   ,REGISTER_STUDENT} from './types';
 import {validateUser } from '../helpers/validations/usersValidations';
 import {Config} from '../config/config';
@@ -38,7 +38,6 @@ export const createUser = function(postData,callback){
   }
 
   return dispatch =>{
-    
     axios.post(`${Config.serverUrl}/users`,postData)
     .then(res => {
         dispatch({
@@ -48,10 +47,9 @@ export const createUser = function(postData,callback){
       callback();
     })
     .catch(err => {
-      console.log(err);
       dispatch({
         type: USERS_ERRORS,
-        payload: {firstName:'server error'}
+        payload: err.response.data
       });
     });  
   } 
@@ -69,7 +67,7 @@ export const deleteUser = (id,callback) => dispatch =>{
     })
     .catch(err => dispatch({
       type: USERS_ERRORS,
-      errors : {firstName: 'error deleting user'}
+      payload : {firstName: 'error deleting user'}
     }));
 }
 
@@ -110,16 +108,9 @@ export const registerStudent = (data,callback) => dispatch => {
 } 
 
 
-export const startLoading = () => {
-  return {
-    type: USERS_START_LOADING,
-    payload: {}
-  }
-}
-
 export const clearErrors = () => {
   return {
-    type: USERS_CLEAR_ERRORS,
+    type: CLEAR_ERRORS,
     payload: {}
   }
 }

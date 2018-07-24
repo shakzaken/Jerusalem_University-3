@@ -62,7 +62,7 @@ export default class image extends Component {
             <img 
               src={this.state.image} 
               alt=''
-              className = {this.state.image ? "show-image": "show-image hidden"}
+              className = {this.state.image ? "image-input-show": "image-input-hide"}
               />
           </div>
         </div>

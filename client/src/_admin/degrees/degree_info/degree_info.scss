@@ -4,6 +4,10 @@
   flex-direction: row;
   position: relative;
 
+  @include respond(phone){
+    display: block;
+  }
+
   &-table{
     
   }
@@ -21,9 +25,15 @@
     cursor: pointer;
     transition: all .3s;
 
+    
+
     &:hover{
       transform: scale(1.1);
     }
+  }
+
+  &-space{
+    height:5rem;
   }
 
   &-body{

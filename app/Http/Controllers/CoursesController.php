@@ -44,6 +44,14 @@ class CoursesController extends Controller
     public function store(Request $request)
     {
       try{
+
+        $tempCourse = Course::where('name',$request->name)->get();
+        if(count($tempCourse) > 0 ){
+          return response([
+            'name' => 'Name is already exists'
+          ],400);
+        }
+
         $course = new Course;
         $course->name = $request->name;
         $course->description = $request->description;
@@ -159,6 +167,14 @@ class CoursesController extends Controller
 
     public function addTopic(Request $request){
       try{
+
+        $tempData = Topic::where('name',$request->name)->count();
+        if($tempData > 0){
+          return response([
+            'name' => 'Topic is already exists'
+          ],400);
+        }
+
         $topic = new Topic;
         $topic->name = $request->name;
         $topic->course_id = $request->courseId;

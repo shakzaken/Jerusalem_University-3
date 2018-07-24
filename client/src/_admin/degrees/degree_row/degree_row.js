@@ -7,7 +7,7 @@ export default props => {
       <td>
         <img
           className="admin-degrees-table-image"
-          src={props.loading ? "" :  props.degree.images.body1}
+          src={props.degree.images.body1}
           alt="degree"
         />
       </td>

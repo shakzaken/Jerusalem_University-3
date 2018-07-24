@@ -10,11 +10,28 @@
 }
 
 .admin-users-table{
+  position: relative;
   &-header{
     margin: 2rem 0 2rem 5%; 
   }
 
-  
+  &-icon{
+   
+    position: absolute;
+    top:6.5rem;
+    right:8rem;
+    font-size: 4rem;
+    color: $admin-color;
+    transition: all .3s;
+    cursor: pointer;
+    @include respond(phone){
+      right:4rem;
+    }
+
+    &:hover{
+      transform: scale(1.2);
+    }
+  }
 
 }
 

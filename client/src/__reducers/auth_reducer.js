@@ -1,34 +1,52 @@
-import {  AUTH_CLEAR_ERRORS,LOGIN_USER,
-  AUTH_ERRORS, LOGOUT_USER,AUTH_GET_USER} from '../__actions/types';
+import {CLEAR_ERRORS,LOGIN_USER,
+  AUTH_ERRORS, LOGOUT_USER,AUTH_GET_USER, INIT_AUTH} from '../__actions/types';
 
 
 const initialState = {
-  user: getUser(),
+  user: {},
   errors:{},
-  token: localStorage.getItem('token')
+  token: '',
+  isAuth: false,
+  isAdmin: false
 }
 
 export default function(state = initialState, action) {
   switch (action.type) {
+
+    case INIT_AUTH:
+      return {
+        ...state,
+        user: action.payload.user,
+        token: action.payload.token,
+        isAuth: true,
+        isAdmin: action.payload.isAdmin,
+        errors: {}
+      }
+
     case LOGOUT_USER:
       return {
         ...state,
         token: '',
-        user: {}
+        user: {},
+        isAuth: false,
+        isAdmin: false,
+        errors: {}
       }
 
     case LOGIN_USER:
       return{
         ...state,
         user: action.payload.user,
-        token: action.payload.token
+        token: action.payload.token,
+        isAuth: true,
+        isAdmin: action.payload.isAdmin
       }
     case AUTH_ERRORS:
       return {
         ...state,
         errors: action.payload
       }
-    case AUTH_CLEAR_ERRORS:
+    case CLEAR_ERRORS:
       return {
         ...state,
         errors: {}
@@ -44,17 +62,7 @@ export default function(state = initialState, action) {
 }
 
 
-function getUser(){
-  
-  const user = JSON.parse(localStorage.getItem('user'));
-  if(user) { 
-    return user;
-  }else{
-    return {};
-  }
-  
-  
-}
+
 
 
 

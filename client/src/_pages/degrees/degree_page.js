@@ -4,7 +4,7 @@ import DegreeHeader from './degree_header/degree_header';
 import ButtonSeconday  from '../../components/buttons/button_secondary/button_secondary';
 import HeaderPrimary from '../../components/headers/header_primary/header_primary';
 import {connect} from 'react-redux';
-import {getDegreeWithCourses,startLoading} from '../../__actions/degrees_actions';
+import {getDegreeWithCourses} from '../../__actions/degrees_actions';
 import {registerStudent} from '../../__actions/users_actions';
 import {getUser} from '../../__actions/auth_actions';
 
@@ -24,9 +24,7 @@ class DegreePage extends Component {
 
   componentDidMount() {
     const id = this.props.match.params.id;
-    this.props.startLoading();
     this.props.getDegreeWithCourses(id);
- 
   }
 
   registerStudent(){
@@ -46,7 +44,7 @@ class DegreePage extends Component {
 
   render() {
 
-    const loading = this.props.courses.length === 0;
+    const loading = this.props.degree.name ? false : true;
     const coursesCards = this.props.courses.map((course) =>
       <CourseCard key={course.id} course={course} />
     );
@@ -93,11 +91,10 @@ const mapStateToProps = (state) => {
   return {
     degree: state.degrees.degree,
     courses: state.degrees.courses,
-    loading: state.degrees.pageLoading,
     user: state.auth.user
   };
 }
 
 
 export default connect(mapStateToProps,
-  {startLoading,getDegreeWithCourses,registerStudent,getUser})(DegreePage);
+  {getDegreeWithCourses,registerStudent,getUser})(DegreePage);

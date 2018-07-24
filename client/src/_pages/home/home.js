@@ -1,21 +1,17 @@
 import React, { Component } from 'react'
 import DegreeCard from './degree_card/degree_card';
 import {connect} from 'react-redux';
-import {getDegrees,startLoading} from '../../__actions/degrees_actions';
+import {getDegrees} from '../../__actions/degrees_actions';
 
 
 
 class Home extends Component {
 
-  
-
   componentDidMount() {
-    this.props.startLoading();
     this.props.getDegrees();
   }
 
   render() {
-
     
     const degreesCards = this.props.degrees.map((degree) =>
       <DegreeCard key={degree.id} degree={degree} />
@@ -45,4 +41,4 @@ const mapStateToProps = function(state){
   };
 }
 
-export default connect(mapStateToProps,{startLoading,getDegrees})(Home);
+export default connect(mapStateToProps,{getDegrees})(Home);

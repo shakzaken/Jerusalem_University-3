@@ -4,14 +4,10 @@
 
   display: block;
   cursor: pointer;
-  margin-top:.5rem;
   position: relative;
   font-size:2.7rem;
   z-index: 5;
   
- 
-  
-
   &-group{
     position: relative;
     display: grid;
@@ -25,6 +21,21 @@
     font-size: 1.3rem;
     margin-bottom: 2px;
     margin-left: -5px;
+  }
+
+  &-show{
+    margin-bottom: 1rem;
+    width:10rem;
+    height: 7rem;
+    margin-left: 2rem;
+  }
+
+  &-hide{
+    opacity: 0;
+    margin-bottom: 1rem;
+    margin-left: 2rem;
+    width:10rem;
+    height: 7rem;
   }
 
   &-icon{
@@ -63,38 +74,3 @@
 
 
 
-
-/*
-.form-group-large{
-  display: grid;
-  grid-template-columns: 2fr 3fr;
-  margin-top:2rem;
-  
-}
-
-.err-msg{
-  color:red;
-  font-weight: 300;
-  
-}
-
-.file-input,
-.register-file-input{
-    
- 
-}
-
-.file-input:hover{
-  background: rgb(226, 49, 73); 
-  color: white;
-}
-
-.img-icon{
-  font-size:70px;
-}
-
-.image-input{
-  display: none;
-}
-
-*/

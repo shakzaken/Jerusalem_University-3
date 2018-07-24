@@ -5,8 +5,7 @@ import {
 const initialState = {
   commentsList: [],
   comment: {},
-  errors: {},
-  loading: true
+  errors: {}
 }
 
 export default function(state = initialState, action) {
@@ -15,7 +14,7 @@ export default function(state = initialState, action) {
       return {
         ...state,
         commentsList: action.payload,
-        loading: false
+        errors: {}
       }
     case ADD_COMMENT:
       return {

@@ -3,7 +3,7 @@ import CourseHeader from './course_header/course_header';
 import CourseContent from './course_content/course_content';
 import CourseComments from './course_comments/course_comments';
 import { connect } from 'react-redux';
-import { startLoading , getCourseWithData } from '../../__actions/courses_actions';
+import { getCourseWithData } from '../../__actions/courses_actions';
 import {addComment,deleteComment} from '../../__actions/comments_actions';
 
 class CoursePage extends Component {
@@ -19,7 +19,6 @@ class CoursePage extends Component {
 
   componentDidMount() {
     const id = this.props.match.params.id;
-    this.props.startLoading();
     this.props.getCourseWithData(id);
     
   }
@@ -48,8 +47,7 @@ class CoursePage extends Component {
 
 
   render() {
-    const loading = this.props.comments.length === 0;
-    
+    const loading = this.props.course.name ? false : true ;
     return (
       <div>
         <CourseHeader course={this.props.course}
@@ -77,10 +75,9 @@ const mapStateToProps = (state) =>{
     course: state.courses.course,
     comments: state.courses.comments,
     topics: state.courses.topics,
-    loading: state.courses.loading,
     user: state.auth.user
   };
 }
 
 export default connect(mapStateToProps,
-  {startLoading,getCourseWithData,addComment,deleteComment})(CoursePage);
+  {getCourseWithData,addComment,deleteComment})(CoursePage);

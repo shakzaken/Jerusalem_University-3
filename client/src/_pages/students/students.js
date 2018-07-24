@@ -1,29 +1,21 @@
 import React, { Component } from "react";
-
 import {connect} from 'react-redux';
-import {startLoading,getStudentData} from '../../__actions/users_actions';
+import {getStudentData} from '../../__actions/users_actions';
 import CourseRow from './course_row/course_row';
 import Header from '../../components/headers/header_primary/header_primary';
 
 
 class Students extends Component {
-  constructor(props){
-    super(props);
-    
-  }
-
+ 
   componentDidMount(){
     const id = this.props.authUser.id;
     if(!id){
-      this.props.startLoading();
       this.props.history.push('/');
     }
     if(this.props.authUser.role!=='student'){
-      this.props.startLoading();
       this.props.history.push('/');
     }
     
-    this.props.startLoading();
     this.props.getStudentData(id);
   }
 
@@ -33,7 +25,6 @@ class Students extends Component {
     
     const loading = this.props.user.image ? false : true;
     const user = this.props.user;
-    
     const degree = this.props.degree;
     const rows = this.props.courses.map(course => 
       <CourseRow key= {course.id} course = {course}/>
@@ -85,10 +76,9 @@ const mapStateToProps = function(state){
     user: state.users.user,
     degree: state.users.degree,
     courses: state.users.courses,
-    authUser: state.auth.user,
-    loading: state.users.loading
+    authUser: state.auth.user
   };
 }
 
-export default connect(mapStateToProps,{startLoading,getStudentData})(Students);
+export default connect(mapStateToProps,{getStudentData})(Students);
 

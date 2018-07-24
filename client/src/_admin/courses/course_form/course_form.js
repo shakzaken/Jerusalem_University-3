@@ -62,6 +62,15 @@ class addCourse extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
+    if(!this.props.isAdmin){
+      const errMsg = document.querySelector('.admin-error-message');
+      errMsg.style.display = "inline-block";
+      setTimeout(()=>{
+        errMsg.style.display = "none";
+      },3000);
+      window.location.assign("#admin-main-block");
+      return;
+    }
     this.props.clearErrors();
     this.props.createCourse(this.state, () => this.props.history.push('/admin/courses'));
   }
@@ -84,7 +93,7 @@ class addCourse extends Component {
             className="app-form"
           >
           <h3 className="admin-form-header admin-form-header-fix">Add Course</h3>
-            
+          <div className="admin-error-message">You are not allowed to perform this action</div>
             <Input
               label="Name"
               name="name"
@@ -149,7 +158,8 @@ addCourse.propTypes = {
 function mapStateToProps(state){
   return {
     errors: state.courses.errors,
-    instructors: state.users.instructors
+    instructors: state.users.instructors,
+    isAdmin: state.auth.isAdmin
   };
 }
 

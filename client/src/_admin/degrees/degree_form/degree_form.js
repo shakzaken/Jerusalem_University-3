@@ -37,9 +37,19 @@ class addDegree extends Component {
   }
 
   handleSubmit(event) {
+    event.preventDefault();
+    if(!this.props.isAdmin){
+      const errMsg = document.querySelector('.admin-error-message');
+      errMsg.style.display = "inline-block";
+      setTimeout(()=>{
+        errMsg.style.display = "none";
+      },3000);
+      window.location.assign("#admin-main-block");
+      return;
+    }
     this.props.clearErrors();
     this.props.createDegree(this.state, () => this.props.history.push('/admin/degrees'));
-    event.preventDefault();
+    
   }
 
 
@@ -50,6 +60,7 @@ class addDegree extends Component {
           <form onSubmit = {this.handleSubmit}
           className="app-form" >
           <h3 className="admin-form-header admin-form-header-fix">Add Degree</h3>
+          <div className="admin-error-message">You are not allowed to perform this action</div>
             <Input
               label="Name"
               name="name"
@@ -121,7 +132,8 @@ addDegree.propTypes = {
 
 function mapStateToProps(state){
   return {
-    errors: state.degrees.errors
+    errors: state.degrees.errors,
+    isAdmin: state.auth.isAdmin
   };
 }
 

@@ -6,6 +6,7 @@ import Image from '../../../components/inputs/image_primary/image_primary';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {createUser,clearErrors} from '../../../__actions/users_actions';
+import {registerUser} from '../../../__actions/auth_actions';
 
 class Register extends Component {
   constructor(props){
@@ -30,8 +31,8 @@ class Register extends Component {
 
   exitClick(event){
 
-    if(event.target.className !=='login' 
-        && event.target.className!== 'login-card-exit') return;
+    if(event.target.className !=='users' 
+        && event.target.className!== 'users-card-exit') return;
     this.setState({
       firstName: '',
       lastName: '',
@@ -49,18 +50,18 @@ class Register extends Component {
   registerClick(event){
     event.preventDefault();
     this.props.clearErrors();
-    this.props.createUser(this.state,() => window.location.assign('/#'));
+    this.props.registerUser(this.state,() => window.location.assign('/#'));
     
   }
 
   render() {
     return (
-      <div className="login" id="register" onClick={this.exitClick}>
-        <div className="login-card register-card">
+      <div className="users" id="register" onClick={this.exitClick}>
+        <div className="users-card register-card">
           <div className="">
-          <a className="login-card-exit" href="#">&times;</a>
-            <form className="login-card-form" >
-              <div className="users-form-group u-height-6">
+          <a className="users-card-exit" href="#">&times;</a>
+            <form className="users-card-form" >
+              <div className="register-form-group u-height-6">
                 <Input
                   label="First Name"
                   value = {this.state.firstName}
@@ -76,7 +77,7 @@ class Register extends Component {
                   error = {this.props.errors.lastName}
                 />
               </div>
-              <div className="users-form-group u-height-6">
+              <div className="register-form-group u-height-6">
                 <Input
                   label="password"
                   value = {this.state.password}
@@ -92,13 +93,15 @@ class Register extends Component {
                   error = {this.props.errors.confirmPassword}
                 />
               </div>
-               <Input
-                label="email"
-                value = {this.state.email}
-                name = "email"
-                handleChange = {(event) => this.setState({email: event.target.value})}
-                error = {this.props.errors.email}
-               />
+              <div className="u-height-6">
+                <Input
+                  label="email"
+                  value = {this.state.email}
+                  name = "email"
+                  handleChange = {(event) => this.setState({email: event.target.value})}
+                  error = {this.props.errors.email}
+                />
+               </div>
               <div className="register-card-image-container">
                 <Image
                     label= "Image"
@@ -111,14 +114,10 @@ class Register extends Component {
                   />
                   <div className="register-card-button-container">
                     <a href="#" 
-                    className="login-card-button" 
+                    className="users-card-button register-card-button" 
                     onClick = {this.registerClick}>Register</a>
                   </div>
               </div>
-                
-                  
-             
-                
             </form>
           </div>
         </div>
@@ -134,7 +133,7 @@ const mapStateToProps = function(state){
 }
 
 
-export default connect(mapStateToProps,{clearErrors,createUser})(Register);
+export default connect(mapStateToProps,{clearErrors,registerUser})(Register);
 
 
 

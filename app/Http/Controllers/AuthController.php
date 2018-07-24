@@ -36,22 +36,7 @@ class AuthController extends Controller
       
       
 
-    // DECODING.
-    /* 
-    $decoded = JWT::decode($jwt, $key, array('HS256'));
-
-   
-    print_r($decoded);
-    $decoded_array = (array) $decoded;
-    */
     }
 
 
-    public function checkToken(Request $request){
-      $key = "example_key";
-      $jwt = $request->header('Authorization');
-      $decoded = JWT::decode($jwt, $key, array('HS256'));
-      $decoded_array = (array) $decoded;
-      return response($decoded_array);
-    }
 }

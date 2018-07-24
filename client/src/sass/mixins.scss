@@ -7,10 +7,28 @@
   @if $var == big-phone {
     @media (max-width: 900px) { @content };
   }
+
+  @if $var == small-tab{
+    @media (max-width: 1000px) { @content };
+  }
   @if $var == tab{
     @media (max-width: 1200px) { @content };
+  }
+  @if $var == pc{
+    @media (min-width: 1450px) { @content };
   }
   @if $var == big-pc{
     @media (min-width: 1800px) { @content };
   }
+}
+
+
+@mixin respond-height($var){
+  @if $var == medium {
+    @media (max-width: 450px) { @content };
+  }
+  @if $var == low {
+    @media (max-width: 300px) { @content };
+  }
+ 
 }

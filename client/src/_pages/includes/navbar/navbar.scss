@@ -20,7 +20,7 @@
 
       &-right{
         justify-content: flex-end;
-        margin-right:5%;
+        margin-right:10%;
         @include respond(phone){
           margin-right:0%;
           justify-content: center;

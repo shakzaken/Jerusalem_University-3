@@ -18,6 +18,8 @@
     margin-left: 10%;
   }
 
+  
+
   .course-comment-grid{
     display: flex;
     
@@ -50,6 +52,10 @@
     @include respond(big-phone){
       margin-left:10rem;
     }
+    @include respond(pc){
+      margin-left:10rem;
+    }
+
     
   }
 

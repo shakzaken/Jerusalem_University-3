@@ -1,23 +1,32 @@
 import React, { Component } from "react";
 import DegreeRow from '../degree_row/degree_row';
 import PropTypes from 'prop-types';
-import { getDegrees,startLoading ,deleteDegree } from '../../../__actions/degrees_actions';
+import { getDegrees,deleteDegree } from '../../../__actions/degrees_actions';
 import {connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 
 
 class degrees extends Component {
 
-  constructor(){
-    super();
+  constructor(props){
+    super(props);
     this.deleteDegree = this.deleteDegree.bind(this);
   }
 
   componentDidMount(){
-    this.props.startLoading();
     this.props.getDegrees();
   }
 
   deleteDegree(id){
+    if(!this.props.isAdmin){
+      const errMsg = document.querySelector('.admin-table-error-message');
+      errMsg.style.display = "inline-block";
+      setTimeout(()=>{
+        errMsg.style.display = "none";
+      },3000);
+      window.location.assign("#admin-main-block");
+      return;
+    }
     if(!window.confirm('Are you sure you want to delete this degree?')) return;
     this.props.deleteDegree(id, () => this.props.getDegrees());
   }
@@ -28,16 +37,19 @@ class degrees extends Component {
       <DegreeRow 
         key={degree.id} 
         degree={degree} 
-        loading={this.props.loading} 
         deleteDegree = {this.deleteDegree} 
         />
     );
     return (
-      <div className="admin-table">
+      <div className="admin-table admin-degrees-table">
         <div className="admin-degrees-table-header">
           <h2 className="admin-form-header admin-form-header-fix">Academic Degrees Table</h2>
+          <Link to="/admin/degrees/add" className="admin-degrees-table-icon">
+             <i class="fas fa-plus-circle "></i>
+          </Link>
+          <div className="admin-table-error-message">You are not allowed to perform this action</div>
         </div>
-        <table >
+        <table>
           <thead>
             <tr>
               <th className="admin-table-small-col">Image</th>
@@ -63,8 +75,9 @@ degrees.propTypes = {
 
 function mapStateTopProps(state){
   return {
-    degrees: state.degrees.degreesList
+    degrees: state.degrees.degreesList,
+    isAdmin: state.auth.isAdmin
   };
 }
 
-export default connect(mapStateTopProps,{getDegrees,startLoading, deleteDegree})(degrees);
+export default connect(mapStateTopProps,{getDegrees,deleteDegree})(degrees);

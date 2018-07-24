@@ -8,7 +8,7 @@ export default props => {
       <td>
         <img
           className="admin-courses-table-image"
-          src={props.loading ? "" :  props.course.image.body}
+          src={props.course.image.body}
           alt="course"
         />
       </td>
@@ -20,9 +20,9 @@ export default props => {
         </Link>
       </td>
       <td>{props.course.instructor}</td>
-      <td>{props.course.field}</td>
-      <td>{props.course.points}</td>
-      <td>{props.course.id}</td>
+      <td className="hide-on-phone">{props.course.field}</td>
+      <td className="hide-on-phone">{props.course.points}</td>
+      <td className="hide-on-phone">{props.course.id}</td>
       <td>
         <a className="text-center"
         onClick ={() => props.deleteCourse(props.course.id)}>

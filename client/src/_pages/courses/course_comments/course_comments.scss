@@ -7,14 +7,24 @@
     text-decoration-line: underline;
     margin-bottom: 1rem;
     margin-left:5rem;
+    @include respond(big-phone){
+      margin-left:20%;
+    }
   }
 
   &-form{
     
-    
     font-size: 1.8rem;
     margin: 7rem 0;
     
+    @include respond(big-phone){
+      width:60%;
+      margin: 7rem auto;
+    }
+    @include respond(phone){
+      width:85%;
+      margin: 7rem auto;
+    }
 
     &-header{
       margin: 0 0 1rem 2rem;

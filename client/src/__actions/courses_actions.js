@@ -1,17 +1,18 @@
-import {GET_COURSES,NEW_COURSE, COURSES_START_LOADING,COURSES_CLEAR_ERRORS,
+import {GET_COURSES,NEW_COURSE, 
         DELETE_COURSE,ADD_TOPIC,
-        DELETE_TOPIC,
+        DELETE_TOPIC,CLEAR_ERRORS,
          GET_TOPICS, GET_COMMENTS, GET_COURSE_WITH_DATA, COURSES_ERRORS
 } from './types';
 import {Config} from '../config/config';
 import axios from 'axios';
 import {validateCourse} from '../helpers/validations/course_validations';
+import {validateTopic} from '../helpers/validations/topic_validation';
 
 const serverURL = Config.serverUrl;
 
 export const clearErrors = () => {
   return {
-    type: COURSES_CLEAR_ERRORS,
+    type: CLEAR_ERRORS,
     payload: {}
   }
 }
@@ -47,7 +48,6 @@ export const getCourses = (callback) => dispatch =>{
     .catch(err => console.log(err));
 };
 
-
 export const createCourse = function(postData,callback){
   let errors = validateCourse(postData);
   if(Object.keys(errors).length > 0){
@@ -66,10 +66,9 @@ export const createCourse = function(postData,callback){
         callback();
       })
       .catch(err => {
-        console.log(err);
         dispatch({
           type: COURSES_ERRORS,
-          payload: {name:'server error'}
+          payload: err.response.data
         });
       });  
   } 
@@ -92,12 +91,6 @@ export const deleteCourse = (id,callback) => dispatch =>{
 }
 
 
-export const startLoading = () => {
-  return {
-    type: COURSES_START_LOADING,
-    payload: {}
-  }
-}
 
 export const getTopics = (id) => dispatch => {
   axios.get(`${serverURL}/courses/topics/${id}`)
@@ -116,6 +109,15 @@ export const getTopics = (id) => dispatch => {
 }
 
 export const addTopic = (data,callback) => dispatch => {
+
+  let errors = validateTopic(data);
+  if(Object.keys(errors).length > 0){
+    return dispatch({
+      type: COURSES_ERRORS,
+      payload: errors
+    });
+  }
+
   axios.post(`${serverURL}/courses/topics`,data)
     .then(res =>{
       dispatch({
@@ -127,7 +129,7 @@ export const addTopic = (data,callback) => dispatch => {
     .catch(err =>{
       dispatch({
         type: COURSES_ERRORS,
-        payload: {errros: 'error in adding a topic'}
+        payload: err.response.data
       });
     });
 }

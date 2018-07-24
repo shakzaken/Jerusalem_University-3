@@ -17,6 +17,9 @@
 .form-group{
   padding: 1rem 1rem;
   width:70%;
+  @include respond(phone){
+    width:90%;
+  }
  }
 
  .err-msg{

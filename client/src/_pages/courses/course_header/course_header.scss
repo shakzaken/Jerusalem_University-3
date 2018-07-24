@@ -11,6 +11,10 @@
   background-size: cover;
   border-bottom: 5px solid $primary-color-dark;
   
+  @include respond(pc){
+    height: 45rem;
+  }
+  
 
   &-grid{
     width:100%;
@@ -44,8 +48,12 @@
       transition: all .2s;
       text-transform: uppercase;
       letter-spacing: 2px;
+
       @include respond(big-phone){
         font-size: 2.5rem;
+      }
+      @include respond(pc){
+        margin-right: 30%;
       }
 
       &:hover{

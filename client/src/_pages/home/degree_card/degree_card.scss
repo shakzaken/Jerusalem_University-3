@@ -2,11 +2,14 @@
 
 .home-card{
   
-  border : .7px solid rgb(209, 209, 209);
-  margin:20px;
+  border : 1px solid rgb(209, 209, 209);
+  margin:2rem;
   display: flex; 
   align-items: stretch;
-  height:250px; 
+  height:25rem;
+  @include respond(pc){
+    height:30rem;
+  } 
 
   &:hover{
     box-shadow: 0 1.5px 2px rgba(black,0.15);

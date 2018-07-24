@@ -57,3 +57,21 @@ export const deleteComment = (id,callback) => dispatch => {
       });
     });
 }
+
+
+export const adminDeleteComment = (id,callback) => dispatch => {
+  axios.delete(`${serverURL}/comments/admin/${id}`)
+    .then(res =>{
+      dispatch({
+        type: DELETE_COMMENT,
+        payload: res.data
+      });
+      callback();
+    })
+    .catch(err =>{
+      dispatch({
+        type: COMMENTS_ERRORS,
+        payload: err
+      });
+    });
+}

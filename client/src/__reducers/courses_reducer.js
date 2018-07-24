@@ -1,13 +1,12 @@
 import {
-   GET_COURSES, NEW_COURSE, COURSES_START_LOADING ,
-   COURSES_ERRORS, COURSES_CLEAR_ERRORS,GET_TOPICS
+   GET_COURSES, NEW_COURSE,
+   COURSES_ERRORS, CLEAR_ERRORS,GET_TOPICS
   ,GET_COURSE_WITH_DATA, DELETE_COURSE
 } from '../__actions/types';
 
 const initialState = {
   coursesList: [],
   course: {},
-  loading: true,
   errors: {},
   topics: [],
   comments: []
@@ -22,9 +21,9 @@ export default function(state = initialState, action) {
         course: action.payload.course,
         comments: action.payload.comments,
         topics: action.payload.topics,
-        loading: false
+        errors: {}
       }
-    case COURSES_CLEAR_ERRORS:
+    case CLEAR_ERRORS:
       return {
         ...state,
         errors: {}
@@ -34,16 +33,11 @@ export default function(state = initialState, action) {
         ...state,
         errors: action.payload
       }
-    case COURSES_START_LOADING:
-      return {
-        ...state,
-        loading: true 
-      }
     case GET_COURSES:
       return {
         ...state,
         coursesList: action.payload,
-        loading: false
+        errors: {}
       };
     case NEW_COURSE:
       return {
@@ -59,7 +53,7 @@ export default function(state = initialState, action) {
         ...state,
         topics: action.payload.topics,
         course: action.payload.course,
-        loading: false
+        errors: {}
       }
     default:
       return state;

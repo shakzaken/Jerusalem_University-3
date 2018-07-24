@@ -1,4 +1,4 @@
-import {GET_DEGREES,NEW_DEGREE, DEGREES_START_LOADING,DEGREES_CLEAR_ERRORS,
+import {GET_DEGREES,NEW_DEGREE,CLEAR_ERRORS,
   DELETE_DEGREE, DEGREES_ERRORS, GET_DEGREE_COURSES,
    DELETE_DEGREE_COURSES, ADD_DEGREE_COURSES} from './types';
 import {Config} from '../config/config';
@@ -7,15 +7,10 @@ import {validateDegree} from '../helpers/validations/degree_validations';
 
 const serverURL = Config.serverUrl;
 
-export const startLoading = () => {
-  return {
-    type: DEGREES_START_LOADING,
-    payload: {}
-  }
-}
+
 export const clearErrors = () => {
   return {
-    type: DEGREES_CLEAR_ERRORS,
+    type: CLEAR_ERRORS,
     payload: {}
   }
 }
@@ -48,10 +43,9 @@ export const createDegree = function(postData,callback){
       callback();
     })
     .catch(err => {
-      console.log(err);
       dispatch({
         type: DEGREES_ERRORS,
-        payload: {name:'server error'}
+        payload: err.response.data
       });
     });  
   } 
@@ -98,10 +92,9 @@ export const addCourseToDegree = (data,callback) => dispatch => {
       callback();
     })
     .catch(err => {
-      console.log(err);
       dispatch({
         type: DEGREES_ERRORS,
-        payload: {errors: 'Error in adding  course to degree'}
+        payload: err.response.data
       });
     });
 }

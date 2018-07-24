@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import {connect} from 'react-redux';
-import {startLoading,getTopics,deleteTopic,addTopic} from '../../../__actions/courses_actions';
+import {getTopics,deleteTopic,addTopic} from '../../../__actions/courses_actions';
 import AdminButton from '../../../components/buttons/button_admin/button_admin';
 import Input from '../../../components/inputs/input_primary/input_primary';
 
@@ -21,17 +21,34 @@ class CourseInfo extends Component {
   componentDidMount(){
     const id = this.props.match.params.id;
     this.setState({courseId:id});
-    this.props.startLoading();
     this.props.getTopics(id);
   }
 
   deleteTopic(id){
+    if(!this.props.isAdmin){
+      const errMsg = document.querySelector('.admin-error-message');
+      errMsg.style.display = "inline-block";
+      setTimeout(()=>{
+        errMsg.style.display = "none";
+      },3000);
+      window.location.assign("#admin-main-block");
+      return;
+    }
     if(!window.confirm('Are you sure you want to delete this topic?')) { return }
     this.props.deleteTopic(id,() => this.props.getTopics(this.state.courseId));
   }
 
   handleSubmit(event){
     event.preventDefault();
+    if(!this.props.isAdmin){
+      const errMsg = document.querySelector('.admin-error-message');
+      errMsg.style.display = "inline-block";
+      setTimeout(()=>{
+        errMsg.style.display = "none";
+      },3000);
+      window.location.assign("#admin-main-block");
+      return;
+    }
     this.props.addTopic(this.state,() => this.props.getTopics(this.state.courseId));
     this.setState({name:''});
   }
@@ -57,12 +74,15 @@ class CourseInfo extends Component {
       </tr>
     );
 
+    const loading = this.props.course.name ? false : true;
     return (
+
       <div className = "admin-degree-info">
         <div className ="admin-table">
           <h1 className="admin-form-header admin-form-header-fix">
-            {this.props.loading ? '': this.props.course.name}
+            {loading ? '': this.props.course.name}
           </h1>
+          <div className="admin-error-message">You are not allowed to perform this action</div>
           <table className="admin-degrees-table">
             <thead>
               <tr>
@@ -76,15 +96,16 @@ class CourseInfo extends Component {
             </tbody>
           </table>
         </div>
-        
+        <div className="admin-degree-info-space"></div>
         <div className="admin-form">
           <form onSubmit ={this.handleSubmit} className="app-form">
             <h3 className="admin-degree-info-header">Add Topic</h3>
             <Input 
              label="Topic"
-             name="topic"
+             name="name"
              value={this.state.name} 
-             handleChange ={this.handleChange}/>
+             handleChange ={this.handleChange}
+             error={this.props.errors.name}/>
             <div class="admin-degree-info-button">
               <AdminButton value="Add Topic" />
             </div>
@@ -101,11 +122,12 @@ const mapStateToProps = function(state){
   return{
     topics: state.courses.topics,
     course: state.courses.course,
-    loading: state.courses.loading
+    isAdmin: state.auth.isAdmin,
+    errors: state.courses.errors
   }
 }
 
-export default connect(mapStateToProps,{startLoading,getTopics,deleteTopic,addTopic})(CourseInfo);
+export default connect(mapStateToProps,{getTopics,deleteTopic,addTopic})(CourseInfo);
 
 
 

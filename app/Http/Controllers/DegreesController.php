@@ -56,6 +56,20 @@ class DegreesController extends Controller
     public function store(Request $request)
     {
       try{
+        $tempDegree1 = Degree::where('name',$request->name)->get();
+        if(count($tempDegree1) > 0 ){
+          return response([
+            'name' => 'Name is already exists'
+          ],400);
+        }
+        $tempDegree2 = Degree::where('full_name',$request->fullName)->get();
+        if(count($tempDegree2) > 0 ){
+          return response([
+            'fullName' => 'Full Name is already exists'
+          ],400);
+        }
+
+
         $degree = new Degree;
         $degree->name = $request->name;
         $degree->full_name = $request->fullName;
@@ -83,6 +97,17 @@ class DegreesController extends Controller
     public function addCourseToDegree(Request $request)
     {
       try{
+
+        $tempData = 
+          DegreeCourses::where('course_id',$request->courseId)
+              ->where('degree_id',$request->degreeId)
+              ->count();
+        if($tempData > 0){
+          return response([
+            'course' => 'This course is already added to this degree'
+          ],400);
+        }
+              
         $degree_courses = new DegreeCourses;
         $degree_courses->course_id = $request->courseId;
         $degree_courses->degree_id = $request->degreeId;

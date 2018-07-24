@@ -3,7 +3,6 @@ import { PropTypes } from "prop-types";
 import { connect } from "react-redux";
 import {
   getDegreeWithCourses,
-  startLoading,
   addCourseToDegree,
   deleteCourseFromDegree
 } from "../../../__actions/degrees_actions";
@@ -27,19 +26,36 @@ class DegreeInfo extends Component {
   componentDidMount() {
     const id = this.props.match.params.id;
     this.setState({degreeId : id});
-    this.props.startLoading();
     this.props.getDegreeWithCourses(id,true);
     this.props.getCourses(() => this.setState({courseId:this.props.courses[0].id}));
   }
 
   handleSubmit(event){
     event.preventDefault();
+    if(!this.props.isAdmin){
+      const errMsg = document.querySelector('.admin-error-message');
+      errMsg.style.display = "inline-block";
+      setTimeout(()=>{
+        errMsg.style.display = "none";
+      },3000);
+      window.location.assign("#admin-main-block");
+      return;
+    }
     this.props.addCourseToDegree(this.state,
       () => this.props.getDegreeWithCourses(this.state.degreeId));
     console.log(this.state);
   }
 
   handleClick(id){
+    if(!this.props.isAdmin){
+      const errMsg = document.querySelector('.admin-error-message');
+      errMsg.style.display = "inline-block";
+      setTimeout(()=>{
+        errMsg.style.display = "none";
+      },3000);
+      window.location.assign("#admin-main-block");
+      return;
+    }
     if(!window.confirm('Are you sure you want to delete this course?')) return;
     this.props.deleteCourseFromDegree(id,
       ()=> this.props.getDegreeWithCourses(this.state.degreeId));
@@ -59,7 +75,6 @@ class DegreeInfo extends Component {
       </tr>
     ));
     
-   
 
     const options = this.props.allCourses.map(course => {
       return {
@@ -67,18 +82,17 @@ class DegreeInfo extends Component {
         value: course.id  
       };
     });
+    const loading = this.props.degree.name ? false : true;
  
-    
-
     return (
       <div className="admin-degree-info">
         <div className="admin-degree-info-body admin-table">
           <div className="admin-degree-info-header">
             <h1 className="admin-form-header">
-              {this.props.loading ? "" : this.props.degree.name}
+              {loading ? "" : this.props.degree.name}
             </h1>
           </div>
-          
+          <div className="admin-error-message">You are not allowed to perform this action</div>
           <table className="admin-degree-info-table">
             <thead>
               <tr>
@@ -91,7 +105,7 @@ class DegreeInfo extends Component {
           </table>
         </div>
         
-
+        <div className="admin-degree-info-space"></div>
         
         <div className="admin-degree-info-add admin-form">
           
@@ -102,7 +116,8 @@ class DegreeInfo extends Component {
               handleChange = {(event) => this.setState({courseId: event.target.value})}
               value = {this.state.courseId} 
               label = "Course"
-              values= {options} /> 
+              values= {options} 
+              error ={this.props.errors.course}/> 
            
             <div class="admin-degree-info-button">
               <AdminButton value ="Add Course"/>
@@ -125,7 +140,8 @@ function mapStateTopProps(state) {
     courses: state.degrees.courses,
     degree: state.degrees.degree,
     allCourses : state.courses.coursesList,
-    loading: state.degrees.loading
+    isAdmin: state.auth.isAdmin,
+    errors: state.degrees.errors
   };
 }
 
@@ -133,7 +149,6 @@ export default connect(
   mapStateTopProps,
   { 
     getDegreeWithCourses,
-    startLoading,
     getCourses,
     addCourseToDegree,
     deleteCourseFromDegree 
