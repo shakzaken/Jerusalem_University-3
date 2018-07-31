@@ -7,6 +7,13 @@ import Header from '../../components/headers/header_primary/header_primary';
 
 class Students extends Component {
  
+  constructor(props){
+    super(props);
+    this.state = {
+      loading: true
+    };
+  }
+
   componentDidMount(){
     const id = this.props.authUser.id;
     if(!id){
@@ -16,14 +23,16 @@ class Students extends Component {
       this.props.history.push('/');
     }
     
-    this.props.getStudentData(id);
+    this.props.getStudentData(id,() =>{
+      this.setState({loading: false});
+    });
   }
 
   
 
   render() {
     
-    const loading = this.props.user.image ? false : true;
+    const loading = this.state.loading;
     const user = this.props.user;
     const degree = this.props.degree;
     const rows = this.props.courses.map(course => 
@@ -31,17 +40,17 @@ class Students extends Component {
     )
     return (
       <div>
-        <section class="students-header">
-          <div class="students-header-container">
-            <div class="students-header-grid">
-              <div class="students-header-image-container">
+        <section className="students-header">
+          <div className="students-header-container">
+            <div className="students-header-grid">
+              <div className="students-header-image-container">
                 <img
-                  class="students-header-image"
+                  className="students-header-image"
                   src={ loading ? '': user.image.body}
                   alt=""
                 />
               </div>
-              <div class="students-header-text">
+              <div className="students-header-text">
                 
                  <h2 className="students-header-text-main">
                   { loading ? '': user.first_name} { loading ? '': user.last_name}
@@ -53,14 +62,14 @@ class Students extends Component {
           </div>
         </section>
 
-        <section class="students-courses">
-          <div class="students-courses-container">
+        <section className="students-courses">
+          <div className="students-courses-container">
             
-            <div class="students-courses-header">
+            <div className="students-courses-header">
               <Header value="My Courses"/>
             </div>
             <br /> 
-            <ul class="students-courses-list">
+            <ul className="students-courses-list">
               {rows}
             </ul>
           </div>

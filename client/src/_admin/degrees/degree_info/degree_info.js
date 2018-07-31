@@ -119,7 +119,7 @@ class DegreeInfo extends Component {
               values= {options} 
               error ={this.props.errors.course}/> 
            
-            <div class="admin-degree-info-button">
+            <div className="admin-degree-info-button">
               <AdminButton value ="Add Course"/>
             </div>
              

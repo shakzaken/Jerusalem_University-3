@@ -9,6 +9,9 @@ import {logout} from '../../../__actions/auth_actions';
 
 class Navbar extends Component {
 
+  
+
+
   rightList(){
     if(this.props.token){
       return this.logoutForm(this.props);
@@ -17,11 +20,24 @@ class Navbar extends Component {
     }
   }
 
+  loginLink(){
+    const login = document.getElementById("login");
+    const loginCard = document.getElementById("login-card");
+    login.classList.add('users-open');
+    loginCard.classList.add('users-open-card');
+  }
+  registerLink(){
+    const register = document.getElementById("register");
+    const registerCard = document.getElementById("register-card");
+    register.classList.add('users-open');
+    registerCard.classList.add('users-open-card');
+  }
+
   loginForm(){
     return (
       <ul className="navbar-ul navbar-ul-right">
-        <a className="navbar-link navbar-link-medium" href="#login">Login</a>
-        <a className="navbar-link navbar-link-medium" href="#register">Register</a>
+        <a className="navbar-link navbar-link-medium" onClick={this.loginLink}>Login</a>
+        <a className="navbar-link navbar-link-medium" onClick={this.registerLink}>Register</a>
       </ul>
     )
   }

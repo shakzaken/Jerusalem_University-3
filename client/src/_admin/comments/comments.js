@@ -25,7 +25,7 @@ class Comments extends Component {
 
   render() {
     const comments = this.props.comments.map(comment => 
-      <div className="admin-comments-row">
+      <div className="admin-comments-row" key={comment.comment_id}>
         <div className="admin-comments-row-details">
           <strong>id: </strong> {comment.comment_id} <br />
           <strong>Name: </strong>{comment.first_name} {comment.last_name}<br />

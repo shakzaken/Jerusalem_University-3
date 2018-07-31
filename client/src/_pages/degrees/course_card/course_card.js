@@ -6,7 +6,7 @@ export default class CourseCard extends Component {
   render() {
     return (
       <div className="e-card">
-        <div class="img-container">
+        <div className="img-container">
           <img className="e-card-img"  alt="course"
           src={this.props.course.body}  />
         </div>

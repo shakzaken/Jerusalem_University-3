@@ -103,10 +103,10 @@ class CourseInfo extends Component {
             <Input 
              label="Topic"
              name="name"
-             value={this.state.name} 
-             handleChange ={this.handleChange}
+             value= {this.state.name} 
+             handleChange = {this.handleChange}
              error={this.props.errors.name}/>
-            <div class="admin-degree-info-button">
+            <div className="admin-degree-info-button">
               <AdminButton value="Add Topic" />
             </div>
           </form>

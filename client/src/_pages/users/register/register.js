@@ -31,7 +31,7 @@ class Register extends Component {
 
   exitClick(event){
 
-    if(event.target.className !=='users' 
+    if(event.target.className !=='users users-open' 
         && event.target.className!== 'users-card-exit') return;
     this.setState({
       firstName: '',
@@ -42,7 +42,10 @@ class Register extends Component {
       role: 'student',
       image: ''
     });
-    window.location.assign('/#');
+    const register = document.getElementById("register");
+    const registerCard = document.getElementById("register-card");
+    register.classList.remove("users-open");
+    registerCard.classList.remove("users-open-card");
     this.props.clearErrors();
 
   }
@@ -50,16 +53,21 @@ class Register extends Component {
   registerClick(event){
     event.preventDefault();
     this.props.clearErrors();
-    this.props.registerUser(this.state,() => window.location.assign('/#'));
+    this.props.registerUser(this.state,() =>{
+      const register = document.getElementById("register");
+      const registerCard = document.getElementById("register-card");
+      register.classList.remove("users-open");
+      registerCard.classList.remove("users-open-card");
+    });
     
   }
 
   render() {
     return (
       <div className="users" id="register" onClick={this.exitClick}>
-        <div className="users-card register-card">
+        <div className="users-card register-card" id="register-card">
           <div className="">
-          <a className="users-card-exit" href="#">&times;</a>
+          <a className="users-card-exit">&times;</a>
             <form className="users-card-form" >
               <div className="register-form-group u-height-6">
                 <Input

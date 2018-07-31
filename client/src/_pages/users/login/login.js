@@ -12,8 +12,11 @@ class Login extends Component {
       email:'yakir@gmail.com',
       password:'1234'
     }
+    
     this.exitClick = this.exitClick.bind(this);
     this.loginClick = this.loginClick.bind(this);
+    
+    
   }
 
   componentDidMount(){
@@ -22,13 +25,17 @@ class Login extends Component {
 
   exitClick(event){
 
-    if(event.target.className !=='users' 
+    if(event.target.className !=='users users-open' 
         && event.target.className!== 'users-card-exit') return;
+    const login = document.getElementById("login");
+    const loginCard = document.getElementById("login-card");
+    login.classList.remove("users-open");
+    loginCard.classList.remove("users-open-card");
+
     this.setState({
       email: '',
       password: ''
     });
-    window.location.assign('/#');
     this.props.clearErrors();
 
   }
@@ -41,19 +48,19 @@ class Login extends Component {
         email: '',
         password: ''
       });
-      window.location.assign('/#');
+      const login = document.getElementById("login");
+      const loginCard = document.getElementById("login-card");
+      login.classList.remove("users-open");
+      loginCard.classList.remove("users-open-card");
     });
   }
 
- 
-
-  
 
   render() {
     return (
-      <div className="users" id="login" onClick={this.exitClick}>
-        <div className="users-card" >
-          <a className="users-card-exit" href="#">&times;</a>  
+      <div className="users" id="login" onClick={this.exitClick} ref={this.login}>
+        <div className="users-card" id="login-card" >
+          <a className="users-card-exit" >&times;</a>  
           <form className="users-card-form">
             <Input
             value= {this.state.email}

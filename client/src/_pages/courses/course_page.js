@@ -8,18 +8,19 @@ import {addComment,deleteComment} from '../../__actions/comments_actions';
 
 class CoursePage extends Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
+    
     this.state = {
-      course: {},
-      comments: [],
       loading: true
     }
   }
 
   componentDidMount() {
     const id = this.props.match.params.id;
-    this.props.getCourseWithData(id);
+    this.props.getCourseWithData(id,() =>{
+      this.setState({loading: false});
+    });
     
   }
 
@@ -47,7 +48,7 @@ class CoursePage extends Component {
 
 
   render() {
-    const loading = this.props.course.name ? false : true ;
+    const loading = this.state.loading;
     return (
       <div>
         <CourseHeader course={this.props.course}

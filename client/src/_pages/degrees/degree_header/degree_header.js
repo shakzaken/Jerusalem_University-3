@@ -11,21 +11,21 @@ export default class DegreeHeader extends Component {
           <img 
             src={loading ? '': this.props.degree.images.body1} 
             alt=""
-            class="degree-header-image" 
+            className="degree-header-image" 
             />
         </div>
         <div className="degree-header-container degree-header-container-2">
           <img 
             src={loading ? '': this.props.degree.images.body2} 
             alt=""
-            class="degree-header-image" 
+            className="degree-header-image" 
           />
         </div>
         <div className="degree-header-container degree-header-container-3">
           <img 
             src={loading ? '': this.props.degree.images.body3} 
             alt="" 
-            class="degree-header-image" />
+            className="degree-header-image" />
         </div>
       </div>
     )

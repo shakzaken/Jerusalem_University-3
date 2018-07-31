@@ -18,13 +18,14 @@ export const clearErrors = () => {
 }
 
 
-export const getCourseWithData = (id) => dispatch =>{
+export const getCourseWithData = (id,callback) => dispatch =>{
   axios.get(`${serverURL}/courses/${id}`)
     .then(res =>{
       dispatch({
         type: GET_COURSE_WITH_DATA,
         payload: res.data
       });
+      if(callback) callback();
     })
     .catch(err =>{
       console.log(err);

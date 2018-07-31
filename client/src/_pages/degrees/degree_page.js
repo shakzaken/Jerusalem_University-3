@@ -13,10 +13,7 @@ class DegreePage extends Component {
 
   constructor() {
     super();
-
     this.state = {
-      degree: {},
-      courses: [],
       loading: true
     }
 
@@ -24,7 +21,9 @@ class DegreePage extends Component {
 
   componentDidMount() {
     const id = this.props.match.params.id;
-    this.props.getDegreeWithCourses(id);
+    this.props.getDegreeWithCourses(id,() =>{
+      this.setState({loading:false});
+    });
   }
 
   registerStudent(){
@@ -44,14 +43,14 @@ class DegreePage extends Component {
 
   render() {
 
-    const loading = this.props.degree.name ? false : true;
+    const loading = this.state.loading;
     const coursesCards = this.props.courses.map((course) =>
       <CourseCard key={course.id} course={course} />
     );
     return (
       <div>
         <section className="degree-first">
-          <div class="degree-first-title">
+          <div className="degree-first-title">
               <HeaderPrimary value={this.props.degree.name} />
               <div className="degree-first-button">
                 <ButtonSeconday name ="Enroll Now" 
@@ -74,7 +73,7 @@ class DegreePage extends Component {
 
 
         <section className="degree-courses">
-          <div class="degree-courses-container">
+          <div className="degree-courses-container">
             <HeaderPrimary value="Academic Courses"/>
           </div>
           <div className="degree-courses-grid">

@@ -69,15 +69,15 @@ export const deleteDegree = (id,callback) => dispatch =>{
 }
 
 
-export const getDegreeWithCourses = (id,loading = false) => dispatch =>{
+export const getDegreeWithCourses = (id,callback) => dispatch =>{
 
   axios.get(`${serverURL}/degrees/${id}`)
     .then(res => { 
-      res.data.loading = loading;
       dispatch({
         type: GET_DEGREE_COURSES,
         payload: res.data
       });
+      if(callback) callback();
     })
     .catch(err => console.log(err));
 };

@@ -45,7 +45,7 @@ class degrees extends Component {
         <div className="admin-degrees-table-header">
           <h2 className="admin-form-header admin-form-header-fix">Academic Degrees Table</h2>
           <Link to="/admin/degrees/add" className="admin-degrees-table-icon">
-             <i class="fas fa-plus-circle "></i>
+             <i className="fas fa-plus-circle "></i>
           </Link>
           <div className="admin-table-error-message">You are not allowed to perform this action</div>
         </div>

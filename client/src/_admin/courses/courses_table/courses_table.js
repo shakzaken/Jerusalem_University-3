@@ -44,7 +44,7 @@ class courses extends Component {
         <div className="admin-courses-table-header">
           <h2 className="admin-form-header admin-form-header-fix">Courses Table</h2>
           <Link to="/admin/courses/add" className="admin-courses-table-icon">
-             <i class="fas fa-plus-circle "></i>
+             <i className="fas fa-plus-circle "></i>
           </Link>
           <div className="admin-table-error-message">You are not allowed to perform this action</div>
         </div>

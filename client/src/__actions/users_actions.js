@@ -79,7 +79,7 @@ export const getStudentData = (id,callback) => dispatch => {
         type: STUDENT_DATA,
         payload: res.data
       });
-      if(callback) { callback();} 
+      if(callback)  callback(); 
     })
     .catch(err =>{
       console.log(err);
