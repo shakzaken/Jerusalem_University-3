@@ -14,7 +14,7 @@ Address: [http://shakapps.net](http://shakapps.net)
 * Course content management.
 * Admin panel for managing all the functionality of the system.
 * Responsive and modern design.
-* Technologies: •	PHP. •	JavaScript. •	CSS. •	MySql
+* Technologies: •	PHP •	Laravel •	MySQL •	Javascript •	React •	Redux
 
 Author: Yakir zaken.
 
